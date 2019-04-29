@@ -20,7 +20,7 @@ class Layout extends React.Component {
             width: 1200,
             maxWidth: "95%",
             padding: `0 5%`,
-            paddingTop: 80,
+            paddingTop: 100,
             fontFamily: "Cabin",
             display: "flex",
             flexDirection: 'column',

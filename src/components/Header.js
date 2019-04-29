@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 import Logo from "./Logo"
 import Avatar from "./Avatar"
 
-import Arrow from '@material-ui/icons/ArrowForwardIos';
+import Arrow from "@material-ui/icons/ArrowForwardIos"
 
 const Container = styled.header`
   position: fixed;
@@ -21,7 +21,7 @@ const Container = styled.header`
 `
 
 const Nav = styled.nav`
-  height: 60px;
+  height: ${({scrolled}) => scrolled ? '60px' : '90px'};
   width: 1200px;
   max-width: 100%;
   padding: 0 5%;
@@ -29,6 +29,7 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   font-family: Cabin;
+  transition: height 420ms;
 
   @media (max-width: 600px) {
     height: 75px;
@@ -77,14 +78,39 @@ const MobileButton = styled.button`
   display: none;
   background: none;
   border: none;
-  transform: rotate(90deg);
+  transform: ${({ open }) => (open ? "rotate(270deg)" : "rotate(90deg)")};
   transition: transform 300ms;
+  outline: none;
   -webkit-tap-highlight-color: transparent;
 
   @media (max-width: 600px) {
     display: flex;
     justify-content: flex-end;
   }
+`
+
+const MobileItem = styled.a`
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  border-bottom: solid 1px #eaeaea;
+  box-shadow: none;
+  color: #000;
+`
+
+const MobileTitle = styled.small`
+  font-size: 14px;
+  font-family: Cabin;
+`
+
+const MobileIcon = styled.div`
+  display: flex;
+  width: 30px;
+  justify-content: center;
+  font-size: 24px;
 `
 
 function Header({ isMobile, isTablet, avatarImage, menuItems }) {
@@ -102,18 +128,13 @@ function Header({ isMobile, isTablet, avatarImage, menuItems }) {
 
   return (
     <Container scrolled={scrolled}>
-      <Nav>
+      <Nav scrolled={scrolled}>
         <Link to="" style={{ boxShadow: "none" }}>
           <DesktopMenuItem>
             <Logo isMobile={isMobile} text="Matt H" scrolled={scrolled} />
           </DesktopMenuItem>
         </Link>
-        <MobileButton
-          type="button"
-          // style={{ display: "flex", justifyContent: "flex-end" }}
-          onClick={() => setOpen(!open)}
-          // className={open ? "arrowOpen" : "arrow"}
-        >
+        <MobileButton type="button" open={open} onClick={() => setOpen(!open)}>
           <Arrow />
         </MobileButton>
         <DesktopNavOptions>
@@ -131,75 +152,20 @@ function Header({ isMobile, isTablet, avatarImage, menuItems }) {
       {open && (
         <NavMob>
           {menuItems.map(each => (
-            <a
+            <MobileItem
               each={each.link}
               href={each.link}
               onClick={() => setOpen(false)}
-              className="mobile-item"
-              style={{ color: each.color || "#000" }}
             >
-              <small style={{ fontSize: 14 }}>{each.title}</small>
-              <div
-                style={{
-                  display: "flex",
-                  width: 30,
-                  justifyContent: "center",
-                  fontSize: 24,
-                }}
+              <MobileTitle>{each.title}</MobileTitle>
+              <MobileIcon
               >
-                <i className={each.icon} />
-              </div>
-            </a>
+                {each.icon}
+              </MobileIcon>
+            </MobileItem>
           ))}
         </NavMob>
       )}
-      <style jsx>
-        {`
-          .desktop-nav-options {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: ${isTablet ? "60%" : "40%"};
-          }
-
-          .arrow {
-            background: none;
-            border: none;
-            transform: rotate(90deg);
-            transition: transform 300ms;
-            -webkit-tap-highlight-color: transparent;
-          }
-
-          .arrowOpen {
-            background: none;
-            border: none;
-            transform: rotate(270deg);
-            transition: transform 300ms;
-            -webkit-tap-highlight-color: transparent;
-          }
-
-          .arrow:focus,
-          .arrowOpen:focus {
-            outline: none;
-          }
-
-          .arrow:active,
-          .arrowOpen:active {
-            background: none;
-          }
-
-          .mobile-item {
-            width: 100%;
-            height: 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 5%;
-            border-bottom: solid 1px #eaeaea;
-            box-shadow: none;
-          }
-        `}
-      </style>
     </Container>
   )
 }
