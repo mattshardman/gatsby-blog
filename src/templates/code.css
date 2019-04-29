@@ -1,0 +1,44 @@
+.gatsby-highlight .language-javascript {
+  background: #011627;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.gatsby-highlight .language-jsx {
+  background: #011627;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+pre.language-jsx {
+  padding: 20px 30px;
+}
+
+pre.language-javascript {
+  padding: 20px 30px;
+}
+
+.token.keyword {
+  color: #ff0078;
+}
+
+.token.function {
+    color: #5dcafc;
+}
+
+.token.class-name {
+    color: #5dcafc;
+}
+
+.gatsby-highlight-code-line {
+  background-color: #023966;
+  display: block;
+  margin-right: -30px;
+  margin-left: -30px;
+  padding-right: 1em;
+  padding-left: calc(30px - 0.25em);
+  border-left: 0.25em solid #ff0078;
+}

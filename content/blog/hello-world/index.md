@@ -1,9 +1,10 @@
 ---
 title: Hello World
-date: "2015-05-01T22:12:03.284Z"
+date: "2019-04-29T22:12:03.284Z"
+description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
 ---
 
-This is my first post on my new fake blog! How exciting!
+This is my first post on my new fake blog
 
 I'm sure I'll write a lot more interesting things in the future.
 
@@ -19,3 +20,13 @@ Oh, and here's a great quote from this Wikipedia on
 > firm-textured, round yolk that is bright orange-red in color.
 
 ![Chinese Salty Egg](./salty_egg.jpg)
+
+```jsx
+// highlight-starts
+const javascript = `boom`;
+// highlight-ends
+
+function More({ more }) {
+    return <Other className="gromit">hello {more}</Other>
+}
+```
