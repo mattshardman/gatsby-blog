@@ -1,6 +1,7 @@
 ---
 title: Hello World
-date: "2019-04-29T22:12:03.284Z"
+date: "2019-04-24T22:12:03.284Z"
+image: https://res.cloudinary.com/dgdniqfi9/image/upload/v1556536028/blog/wave.png
 description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
 ---
 

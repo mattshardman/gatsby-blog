@@ -1,10 +1,15 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import styled from 'styled-components';
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+
+const Wrapper = styled.article`
+  width: 600px;
+`;
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -18,7 +23,8 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <h1>{post.frontmatter.title}</h1>
+        <Wrapper>
+        <h1 style={{ fontFamily: 'Cabin' }}>{post.frontmatter.title}</h1>
         <p
           style={{
             ...scale(-1 / 5),
@@ -57,6 +63,7 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
+        </Wrapper>
       </Layout>
     )
   }

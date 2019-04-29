@@ -17,19 +17,15 @@ class Layout extends React.Component {
           style={{
             marginLeft: `auto`,
             marginRight: `auto`,
-            maxWidth: rhythm(24),
+            maxWidth: 1200,
             padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-            paddingTop: 100,
-            fontFamily: 'Cabin'
+            paddingTop: 80,
+            fontFamily: 'Cabin',
+            display: 'flex',
+            justifyContent: 'center'
           }}
         >
           <main>{children}</main>
-
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
         </div>
       </div>
     )

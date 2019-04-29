@@ -12,6 +12,7 @@ module.exports = {
         fonts: [
           {
             family: `Cabin`,
+            variants: [`400`, `700`]
           },
           {
             family: `Noto Serif`,

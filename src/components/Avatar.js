@@ -13,7 +13,6 @@ const Avatar = () => (
         fixed={data.avatar.childImageSharp.fixed}
         alt="me"
         style={{
-          marginRight: rhythm(1 / 2),
           marginBottom: 0,
           minWidth: 40,
           borderRadius: `100%`,

@@ -5,6 +5,8 @@ import PropTypes from "prop-types"
 import Logo from "./Logo"
 import Avatar from "./Avatar"
 
+import Arrow from '@material-ui/icons/ArrowForwardIos';
+
 const Container = styled.header`
   position: fixed;
   z-index: 100;
@@ -29,7 +31,7 @@ const Nav = styled.nav`
   font-family: Cabin;
 
   @media (max-width: 600px) {
-    width: 75px;
+    height: 75px;
   }
 `
 
@@ -62,10 +64,28 @@ const DesktopNavOptions = styled.div`
   width: 40%;
   transition: width 500ms;
 
-  @media(max-width: 900px) {
+  @media (max-width: 600px) {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
     width: 60%;
   }
-`;
+`
+
+const MobileButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  transform: rotate(90deg);
+  transition: transform 300ms;
+  -webkit-tap-highlight-color: transparent;
+
+  @media (max-width: 600px) {
+    display: flex;
+    justify-content: flex-end;
+  }
+`
 
 function Header({ isMobile, isTablet, avatarImage, menuItems }) {
   const [open, setOpen] = useState(false)
@@ -88,34 +108,25 @@ function Header({ isMobile, isTablet, avatarImage, menuItems }) {
             <Logo isMobile={isMobile} text="Matt H" scrolled={scrolled} />
           </DesktopMenuItem>
         </Link>
-        {isMobile ? (
-          <button
-            type="button"
-            style={{ display: "flex", justifyContent: "flex-end" }}
-            onClick={() => setOpen(!open)}
-            className={open ? "arrowOpen" : "arrow"}
-          >
-            <i className="material-icons">arrow_forward_ios</i>
-          </button>
-        ) : (
-          <DesktopNavOptions>
-            {menuItems.map(each => (
-              <Link
-                to={each.link}
-                key={each.link}
-                style={{ boxShadow: "none" }}
-              >
-                <DesktopMenuItem>
-                  {each.icon && (
-                  each.icon
-                  )}
-                  <small>{each.title}</small>
-                </DesktopMenuItem>
-              </Link>
-            ))}
-            {!isTablet && <Avatar avatarImage={avatarImage} />}
-          </DesktopNavOptions>
-        )}
+        <MobileButton
+          type="button"
+          // style={{ display: "flex", justifyContent: "flex-end" }}
+          onClick={() => setOpen(!open)}
+          // className={open ? "arrowOpen" : "arrow"}
+        >
+          <Arrow />
+        </MobileButton>
+        <DesktopNavOptions>
+          {menuItems.map(each => (
+            <Link to={each.link} key={each.link} style={{ boxShadow: "none" }}>
+              <DesktopMenuItem>
+                {each.icon && each.icon}
+                <small>{each.title}</small>
+              </DesktopMenuItem>
+            </Link>
+          ))}
+          {!isTablet && <Avatar avatarImage={avatarImage} />}
+        </DesktopNavOptions>
       </Nav>
       {open && (
         <NavMob>

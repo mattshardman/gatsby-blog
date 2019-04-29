@@ -1,10 +1,22 @@
 import React from "react"
+import styled from 'styled-components';
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
+
+const PostsWrapper = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+`;  
+
+const Post = styled.div`
+  width: 320px;
+  margin: 20px;
+`;
 
 class BlogIndex extends React.Component {
   render() {
@@ -19,28 +31,39 @@ class BlogIndex extends React.Component {
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
         {/* <Bio /> */}
+        <h1 style={{ margin: '0 20px 20px 20px' }}>Blog</h1>
+        <PostsWrapper>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
+          console.log(node.frontmatter.image)
           return (
-            <div key={node.fields.slug}>
+            <Post key={node.fields.slug}>
+              <img src={node.frontmatter.image} alt="" style={{ marginBottom: 10 }} />
               <h3
                 style={{
-                  marginBottom: rhythm(1 / 4),
+                  margin: 0,
+                  marginBottom: 12,
+                  fontFamily: 'Cabin',
+                  color: '#484848'
                 }}
               >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                <Link style={{ boxShadow: `none`, color: '#2B2B2B' }} to={node.fields.slug}>
                   {title}
                 </Link>
               </h3>
-              <small>{node.frontmatter.date}</small>
+              
               <p
+                style={{ color: '#767676', fontWeight: 400, textAlign: 'justify', margin: '12px 0' }}
                 dangerouslySetInnerHTML={{
                   __html: node.frontmatter.description || node.excerpt,
                 }}
               />
-            </div>
+
+              <small>{node.frontmatter.date}</small>
+            </Post>
           )
         })}
+        </PostsWrapper>
       </Layout>
     )
   }
@@ -65,6 +88,7 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            image
             description
           }
         }
