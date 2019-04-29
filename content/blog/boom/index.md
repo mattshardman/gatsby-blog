@@ -61,17 +61,17 @@ Above are a couple of simple examples. However, building apis is where things ge
 Traditionally, if you were to build a node.js api, you would: install express, set up a server and define a series of functions to handle different endpoints and request methods.
 
 ```javascript
-    const app = require('express')();
+const app = require('express')();
 
-    app.get('/hi', (req, res) => {
-        res.status(200).send('hi!');
-    });
+app.get('/hi', (req, res) => {
+    res.status(200).send('hi!');
+});
 
-    app.get('/hello', (req, res) => {
-        res.status(200).send('hello!');
-    });
+app.get('/hello', (req, res) => {
+    res.status(200).send('hello!');
+});
 
-    app.listen(3000);
+app.listen(3000);
 ```
 
 When deployed this app would run on a single server and be running all the time.
@@ -80,10 +80,39 @@ With serverless a very different approach is taken. Each endpoint is simply a si
 
 This has a number of consequences:
 * First, there is no set up what so ever - the developer simply writes their logic for each endpoint does not have to worry about the infrastructure AT ALL.
-* Second, the app can scale infinitely with no configuration of the developers part (each request maps to a function on a 1:1 basis, so each time a new request comes in a new instance of the function is fired up)
+* Second, the app can scale infinitely with no configuration on the developers part (each request maps to a function on a 1:1 basis, so each time a new request comes in a new instance of the function is fired up)
 * Third, cost is drastically reduced - code is only running when it needs to.
 
 So, this all sounds great, but how does it work in practice?
 
 ###Building a node.js API with now
 
+Building a serverless api with node and now is unsurprisingly rather straightforward.
+
+To achieve the same result as the above express based api, we simply need to do the following:
+
+Create a few folders:
+
+```bash
+api/
+|--- hi/
+|-------index.js
+|--- hello/
+|-------index.js
+```
+
+Export a simple function in each index.js to handle a request:
+
+```javascript
+// api/hi/index.js
+module.exports = (req, res) => {
+    res.end('hi');
+}
+```
+
+```javascript
+// api/hello/index.js
+module.exports = (req, res) => {
+    res.end('hello');
+}
+```

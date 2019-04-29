@@ -25,11 +25,15 @@
 }
 
 pre.language-jsx {
-  padding: 20px 30px;
+  padding: 20px 20px;
 }
 
 pre.language-javascript {
-  padding: 20px 30px;
+  padding: 20px 20px;
+}
+
+pre.language-bash {
+  padding: 20px 20px;
 }
 
 .token.keyword {
@@ -45,11 +49,12 @@ pre.language-javascript {
 }
 
 .gatsby-highlight-code-line {
+  box-sizing: border-box;
   background-color: #023966;
   display: block;
-  margin-right: -30px;
-  margin-left: -30px;
-  padding-right: 1em;
-  padding-left: calc(30px - 0.25em);
-  border-left: 0.25em solid #ff0078;
+  margin-right: -20px;
+  margin-left: -20px;
+  
+  padding-left: 20px;
+  border-left: 3px solid #ff0078;
 }
