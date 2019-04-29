@@ -19,11 +19,13 @@ class Layout extends React.Component {
             marginRight: `auto`,
             width: 1200,
             maxWidth: "95%",
-            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+            padding: `0 5%`,
             paddingTop: 80,
             fontFamily: "Cabin",
             display: "flex",
+            flexDirection: 'column',
             justifyContent: "center",
+            alignItems: 'center'
           }}
         >
           {children}
