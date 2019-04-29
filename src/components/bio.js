@@ -38,7 +38,7 @@ function Bio() {
               }}
             />
             <p>
-              Written by <strong>Matt</strong> who lives and works near Bath.
+              Written by <strong>Matt</strong>.
             </p>
           </div>
         )

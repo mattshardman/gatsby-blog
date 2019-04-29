@@ -3,6 +3,7 @@
   border: none;
   border-radius: 5px;
   font-size: 14px;
+  margin-bottom: 20px;
 }
 
 .gatsby-highlight .language-jsx {
@@ -11,6 +12,16 @@
   border-radius: 5px;
   font-size: 14px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+}
+
+.gatsby-highlight .language-bash {
+  background: #011627;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
 }
 
 pre.language-jsx {

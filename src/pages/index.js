@@ -27,6 +27,7 @@ const Post = styled.div`
 
   @media (max-width: 600px) {
     width: 100%;
+    padding: 20px 0;
   }
 `;
 

@@ -5,4 +5,85 @@ image: https://res.cloudinary.com/dgdniqfi9/image/upload/v1556535368/blog/boom.p
 description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
 ---
 
-This is my first post on my new fake blog
+
+Ever since I stumbled across [next.js](https://nextjs.org), I've been somewhat of a Zeit fan-boy. 
+
+For those who don't know next.js is a frame work built on top of React. It makes doing things that are normally relatively hard, of at least fiddly, super simple. For example, routing is handled using a pages folder where each file maps to a url, and server-side rendering is included out of the box.
+
+Zeit's entire philosophy centers on making complicated processes incredibly simple. Soon after experiencing this with next I started to experiment with their flagship product: now cloud hosting.
+
+Now allows you to deploy to a automatically generated (and unique) url using a single command:
+
+```bash
+$ now
+```
+
+With now 1.0 that was literally it. Zeit's software would then Dockerise your project and deploy it to the cloud.
+
+## Now goes serverless
+
+However, with [now 2.0](https://zeit.co/) Zeit made the move to go fully serverless; creating an architecture build on top of AWS's lambda. It's now required to have a simple configuration file, which is slightly more work - but ultimately a far superior product.
+
+The configuration is fairly straight forward:
+
+```javascript
+// now.json
+{
+    //highlight-next-line
+    "version": 2
+}
+```
+
+First, specify the version. (2 refers to the newest serverless version of now, this is required to build serverless projects).
+
+```javascript
+// now.json
+{
+    "version": 2,
+    //highlight-start
+    "builds" :[
+        { "src": "package.json", "use": "@now/next" }
+    ]
+    //highlight-end
+}
+```
+
+Second, specify the build: Zeit provides a number a different builders for different configuration. The one above is for building a server rendered next.js app.
+
+There are a lot of different builders available from python to golang.
+
+Another awesome option is @now/static-build. This allows you to build react apps (and presumably anything relevant - although I haven't tried it) into statically served sites. This is great for performance, particularly when building serving projects built with create-react-app (have you ever tried loading a non-cached create-react-app hosted on heroku? 😦).
+
+##Building APIs
+
+Above are a couple of simple examples. However, building apis is where things get really interesting.
+
+Traditionally, if you were to build a node.js api, you would: install express, set up a server and define a series of functions to handle different endpoints and request methods.
+
+```javascript
+    const app = require('express')();
+
+    app.get('/hi', (req, res) => {
+        res.status(200).send('hi!');
+    });
+
+    app.get('/hello', (req, res) => {
+        res.status(200).send('hello!');
+    });
+
+    app.listen(3000);
+```
+
+When deployed this app would run on a single server and be running all the time.
+
+With serverless a very different approach is taken. Each endpoint is simply a single function. When a request hits that endpoint the code for that specific function is fired up, it serves its purpose and then stops running.
+
+This has a number of consequences:
+* First, there is no set up what so ever - the developer simply writes their logic for each endpoint does not have to worry about the infrastructure AT ALL.
+* Second, the app can scale infinitely with no configuration of the developers part (each request maps to a function on a 1:1 basis, so each time a new request comes in a new instance of the function is fired up)
+* Third, cost is drastically reduced - code is only running when it needs to.
+
+So, this all sounds great, but how does it work in practice?
+
+###Building a node.js API with now
+
