@@ -6,13 +6,13 @@ description: This is a custom description for SEO and Open Graph purposes, rathe
 ---
 
 
-Ever since I stumbled across [next.js](https://nextjs.org), I've been somewhat of a Zeit fan-boy. 
+Ever since I stumbled across next.js, I’ve been somewhat of a Zeit fan-boy.
 
-For those who don't know next.js is a frame work built on top of React. It makes doing things that are normally relatively hard, of at least fiddly, super simple. For example, routing is handled using a pages folder where each file maps to a url, and server-side rendering is included out of the box.
+For those who don’t know next.js is a frame work built on top of React. It makes doing things that are normally relatively hard, of at least fiddly, super simple. For example: a pages folder handles routing - each file maps to a url; and server-side rendering is included out of the box.
 
-Zeit's entire philosophy centers on making complicated processes incredibly simple. Soon after experiencing this with next I started to experiment with their flagship product: now cloud hosting.
+Zeit’s entire philosophy centres on making complicated processes very simple. This was definitely the case with next, and is also true for their flagship product: [Now cloud hosting](https://zeit.co/).
 
-Now allows you to deploy to a automatically generated (and unique) url using a single command:
+Now allows you to deploy, to an automatically generated (and unique) url, using a single command:
 
 ```bash
 $ now
@@ -48,11 +48,11 @@ First, specify the version. (2 refers to the newest serverless version of now, t
 }
 ```
 
-Second, specify the build: Zeit provides a number a different builders for different configuration. The one above is for building a server rendered next.js app.
+Second, specify the build: Zeit provides a number a builders for different projects. The one above is for building a server rendered next.js app (slightly confusing this is serverless, but it basically means that the site is rendered in the cloud rather than in the browser).
 
-There are a lot of different builders available from python to golang.
+There are lots of different builders available, from python to golang.
 
-Another awesome option is @now/static-build. This allows you to build react apps (and presumably anything relevant - although I haven't tried it) into statically served sites. This is great for performance, particularly when building serving projects built with create-react-app (have you ever tried loading a non-cached create-react-app hosted on heroku? 😦).
+Another awesome option is @now/static-build. This allows you to build react apps (and presumably many other things - although I haven't tried it) into statically served sites. This is great for performance, particularly when serving projects built with create-react-app (have you ever tried loading a non-cached create-react-app hosted on heroku? 😦).
 
 ##Building APIs
 
@@ -79,15 +79,15 @@ When deployed this app would run on a single server and be running all the time.
 With serverless a very different approach is taken. Each endpoint is simply a single function. When a request hits that endpoint the code for that specific function is fired up, it serves its purpose and then stops running.
 
 This has a number of consequences:
-* First, there is no set up what so ever - the developer simply writes their logic for each endpoint does not have to worry about the infrastructure AT ALL.
-* Second, the app can scale infinitely with no configuration on the developers part (each request maps to a function on a 1:1 basis, so each time a new request comes in a new instance of the function is fired up)
+* First, there is no set up what so ever - the developer simply writes their logic for each endpoint and does not have to worry about the infrastructure AT ALL.
+* Second, the app can scale infinitely with no configuration, on the developers part (each request maps to a function on a 1:1 basis, so each time a new request comes in a new instance of the function is fired up)
 * Third, cost is drastically reduced - code is only running when it needs to.
 
 So, this all sounds great, but how does it work in practice?
 
 ###Building a node.js API with now
 
-Building a serverless api with node and now is unsurprisingly rather straightforward.
+Building a serverless api with node and now is, unsurprisingly, rather straightforward.
 
 To achieve the same result as the above express based api, we simply need to do the following:
 

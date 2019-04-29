@@ -43,7 +43,7 @@ class BlogIndex extends React.Component {
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <h1 style={{ margin: "0 20px 20px 20px" }}>Blog</h1>
+        <h2 style={{ margin: "0 20px 20px 20px" }}>Blog</h2>
         <PostsWrapper>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
