@@ -196,6 +196,7 @@ function Header({ isMobile, isTablet, avatarImage, menuItems }) {
             align-items: center;
             padding: 0 5%;
             border-bottom: solid 1px #eaeaea;
+            box-shadow: none;
           }
         `}
       </style>

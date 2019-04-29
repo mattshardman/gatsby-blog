@@ -9,24 +9,25 @@ import Header from "./Header"
 class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props
-  
+
     return (
       <div>
         <Header menuItems={headerData.menuItems} />
-        <div
+        <main
           style={{
             marginLeft: `auto`,
             marginRight: `auto`,
-            maxWidth: 1200,
+            width: 1200,
+            maxWidth: "95%",
             padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
             paddingTop: 80,
-            fontFamily: 'Cabin',
-            display: 'flex',
-            justifyContent: 'center'
+            fontFamily: "Cabin",
+            display: "flex",
+            justifyContent: "center",
           }}
         >
-          <main>{children}</main>
-        </div>
+          {children}
+        </main>
       </div>
     )
   }
