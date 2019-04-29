@@ -18,16 +18,20 @@ const PostsWrapper = styled.section`
 `
 
 const Post = styled.div`
-  width: 33.3%;
+  width: 30%;
   padding: 20px;
+  margin: 1.5%;
+  border-radius: 5px;
+  border: 1px #dadce0 solid;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.1);
 
   @media (max-width: 900px) {
-    width: 50%;
+    width: 47%;
   }
 
   @media (max-width: 600px) {
     width: 100%;
-    padding: 20px 0;
+    margin: 10px 0;
   }
 `;
 
@@ -43,11 +47,10 @@ class BlogIndex extends React.Component {
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <h2 style={{ margin: "0 20px 20px 20px" }}>Blog</h2>
+        <h1 style={{ margin: "0 20px 20px 20px", fontFamily: "Cabin", }}>Blog</h1>
         <PostsWrapper>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
-            console.log(node.frontmatter.image)
             return (
               <Post key={node.fields.slug}>
                 <img
@@ -83,7 +86,7 @@ class BlogIndex extends React.Component {
                   }}
                 />
 
-                <small>{node.frontmatter.date}</small>
+                <small>{node.frontmatter.date.toUpperCase()}</small>
               </Post>
             )
           })}
