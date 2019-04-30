@@ -50,12 +50,8 @@ pre.language-bash {
 
 .gatsby-highlight-code-line {
   position: absolute;
-  /* margin-right: -1.3125rem; */
   margin-left: -1rem;
   background-color: #022a4b;
-  display: block;
   min-width: 100%;
-  /* padding-right: 1em;
-  padding-left: 1.25em; */
   border-left: 0.35em solid #ff0078;
 }
