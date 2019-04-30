@@ -11,7 +11,7 @@
   border: none;
   border-radius: 5px;
   font-size: 14px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
 }
 
@@ -20,7 +20,7 @@
   border: none;
   border-radius: 5px;
   font-size: 14px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
 }
 
@@ -29,7 +29,7 @@ pre.language-jsx {
 }
 
 pre.language-javascript {
-  padding: 20px 20px;
+  position: relative;
 }
 
 pre.language-bash {
@@ -41,20 +41,21 @@ pre.language-bash {
 }
 
 .token.function {
-    color: #5dcafc;
+  color: #5dcafc;
 }
 
 .token.class-name {
-    color: #5dcafc;
+  color: #5dcafc;
 }
 
 .gatsby-highlight-code-line {
-  box-sizing: border-box;
-  background-color: #023966;
+  position: absolute;
+  /* margin-right: -1.3125rem; */
+  margin-left: -1rem;
+  background-color: #022a4b;
   display: block;
-  margin-right: -20px;
-  margin-left: -20px;
-  
-  padding-left: 20px;
-  border-left: 3px solid #ff0078;
+  min-width: 100%;
+  /* padding-right: 1em;
+  padding-left: 1.25em; */
+  border-left: 0.35em solid #ff0078;
 }
