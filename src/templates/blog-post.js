@@ -25,7 +25,7 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <Wrapper>
-          <h1 style={{ fontFamily: "Cabin", margin: "10px 0" }}>
+          <h1 style={{ margin: "10px 0" }}>
             {post.frontmatter.title}
           </h1>
           <p

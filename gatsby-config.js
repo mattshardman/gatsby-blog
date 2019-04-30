@@ -16,7 +16,7 @@ module.exports = {
             variants: [`400`, `700`]
           },
           {
-            family: `Noto Serif`,
+            family: `Roboto Slab`,
             variants: [`400`, `700`]
           },
           {

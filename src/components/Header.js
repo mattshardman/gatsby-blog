@@ -48,13 +48,13 @@ const DesktopMenuItem = styled.a`
   color: #000;
   display: flex;
   align-items: center;
-  transition: color 1s;
+  transition: color 600ms;
   text-decoration: none;
   box-shadow: none;
   font-size: 17px;
 
   &:hover {
-    color: #f442e5;
+    color: #ff0078;
   }
 `
 
@@ -131,7 +131,7 @@ function Header({ isMobile, isTablet, avatarImage, menuItems }) {
       <Nav scrolled={scrolled}>
         <Link to="" style={{ boxShadow: "none" }}>
           <DesktopMenuItem>
-            <Logo isMobile={isMobile} text="Matt H" scrolled={scrolled} />
+            <Logo isMobile={isMobile} text="Matt.cat" scrolled={scrolled} />
           </DesktopMenuItem>
         </Link>
         <MobileButton type="button" open={open} onClick={() => setOpen(!open)}>

@@ -59,7 +59,7 @@ class BlogIndex extends React.Component {
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <h2 style={{ margin: "0 20px 20px 20px", fontFamily: "Cabin" }}>
+        <h2 style={{ margin: "0 20px 20px 20px" }}>
           Blog
         </h2>
         <PostsWrapper>
@@ -76,7 +76,6 @@ class BlogIndex extends React.Component {
                   style={{
                     margin: 0,
                     marginBottom: 12,
-                    fontFamily: "Cabin",
                     color: "#484848",
                   }}
                 >
