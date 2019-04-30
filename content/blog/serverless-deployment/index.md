@@ -31,6 +31,7 @@ The configuration is fairly straight forward:
 {
     //highlight-next-line
     "version": 2
+
 }
 ```
 
@@ -40,11 +41,15 @@ First, specify the version. (2 refers to the newest serverless version of now, t
 // now.json
 {
     "version": 2,
-    //highlight-start
+    //highlight-next-line
     "builds": [
+
+        //highlight-next-line
         { "src": "package.json", "use": "@now/next" }
+
+    //highlight-next-line
     ]
-    //highlight-end
+    
 }
 ```
 
@@ -132,7 +137,7 @@ Finally, we just need to create a now.json file to define our builds:
     "builds": [
         // highlight-next-line
         { "src": "api/**/*.js", "use": "@now/node" }
-        
+
     ]
 }
 ```
