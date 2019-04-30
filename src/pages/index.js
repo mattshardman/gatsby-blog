@@ -17,13 +17,15 @@ const PostsWrapper = styled.section`
   }
 `
 
-const Post = styled.div`
+const Post = styled(props => <Link {...props} />)`
+  position: relative;
   width: 30%;
   padding: 20px;
   margin: 1.5%;
   border-radius: 5px;
   border: 1px #dadce0 solid;
   box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+  cursor: pointer;
 
   @media (max-width: 900px) {
     width: 47%;
@@ -33,6 +35,15 @@ const Post = styled.div`
     width: 100%;
     margin: 10px 0;
   }
+`;
+
+const Date = styled.div`
+  box-sizing: border-box;
+  width: calc(100% - 40px);
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #000;
 `;
 
 class BlogIndex extends React.Component {
@@ -52,7 +63,7 @@ class BlogIndex extends React.Component {
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
-              <Post key={node.fields.slug}>
+              <Post key={node.fields.slug} to={node.fields.slug}>
                 <img
                   src={node.frontmatter.image}
                   alt=""
@@ -80,13 +91,16 @@ class BlogIndex extends React.Component {
                     fontWeight: 400,
                     textAlign: "justify",
                     margin: "12px 0",
+                    lineHeight: 1.5,
+                    marginBottom: 35
                   }}
                   dangerouslySetInnerHTML={{
                     __html: node.frontmatter.description || node.excerpt,
                   }}
                 />
-
+                <Date>
                 <small>{node.frontmatter.date.toUpperCase()}</small>
+                </Date>
               </Post>
             )
           })}
