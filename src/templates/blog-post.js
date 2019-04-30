@@ -10,7 +10,7 @@ import { rhythm, scale } from "../utils/typography"
 const Wrapper = styled.article`
   width: 600px;
   max-width: 100%;
-`;
+`
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -25,7 +25,9 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <Wrapper>
-          <h1 style={{ fontFamily: "Cabin", margin: '10px 0' }}>{post.frontmatter.title}</h1>
+          <h1 style={{ fontFamily: "Cabin", margin: "10px 0" }}>
+            {post.frontmatter.title}
+          </h1>
           <p
             style={{
               ...scale(-1 / 5),
@@ -48,7 +50,7 @@ class BlogPostTemplate extends React.Component {
               listStyle: `none`,
               padding: 0,
               margin: 0,
-              marginBottom: 20
+              marginBottom: 20,
             }}
           >
             <li>
