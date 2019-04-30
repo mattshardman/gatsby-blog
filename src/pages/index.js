@@ -26,7 +26,7 @@ const Post = styled(props => <Link {...props} />)`
   border: 1px #dadce0 solid;
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: box-shadow 420ms, width 420ms;
+  transition: box-shadow 420ms, width 420ms, transform 420ms;
 
   @media (max-width: 900px) {
     width: 47%;
@@ -35,6 +35,11 @@ const Post = styled(props => <Link {...props} />)`
   @media (max-width: 600px) {
     width: 100%;
     margin: 10px 0;
+  }
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   }
 `
 
