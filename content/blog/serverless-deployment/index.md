@@ -1,7 +1,7 @@
 ---
 title: Going serverless with Zeit's now
 date: "2019-04-29T22:12:03.284Z"
-image: https://res.cloudinary.com/dgdniqfi9/image/upload/v1556613562/portfolio/zeit.png
+image: https://res.cloudinary.com/dgdniqfi9/image/upload/v1556614940/blog/now.png
 description: How to deploy a simple serverless node.js api using Zeit's now service.
 ---
 
