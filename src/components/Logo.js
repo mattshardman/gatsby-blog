@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 const Logo = ({ text, scrolled }) => (
   <h2 style={{
-    fontFamily: 'Noto Serif',
+    fontFamily: 'Roboto Slab, Serif',
     fontSize: 24,
     margin: 0,
     display: 'flex',
-    fontWeight: 600,
+    fontWeight: 550,
   }}
   >
   /
-    <span style={{ color: '#f442e5' }}>/</span>
+    <span style={{ color: '#ff0078' }}>/</span>
     &nbsp;
     <div style={scrolled
       ? { width: '100%', transition: 'width 1s' }

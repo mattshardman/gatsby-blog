@@ -21,7 +21,6 @@ class Layout extends React.Component {
             maxWidth: "100%",
             padding: `0 5%`,
             paddingTop: 100,
-            fontFamily: "Cabin",
             display: "flex",
             flexDirection: 'column',
             justifyContent: "center",

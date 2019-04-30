@@ -1,17 +1,27 @@
 import Typography from "typography"
-import Wordpress2016 from "typography-theme-wordpress-2016"
+import fun from "typography-theme-funston"
 
-Wordpress2016.overrideThemeStyles = () => {
+fun.baseFontSize = "16px"
+fun.headerFontFamily = ["Cabin"]
+fun.headerWeight = 800
+
+fun.bodyFontFamily = ["Cabin"]
+
+fun.overrideThemeStyles = () => {
   return {
     "a.gatsby-resp-image-link": {
       boxShadow: `none`,
     },
+    a: {
+      textDecoration: `none`,
+      color: "#ff0078",
+    },
   }
 }
 
-delete Wordpress2016.googleFonts
+delete fun.googleFonts
 
-const typography = new Typography(Wordpress2016)
+const typography = new Typography(fun)
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {
