@@ -53,6 +53,8 @@ pre.language-bash {
   margin-left: -1rem;
   background-color: #022a4b;
   padding-left: 0.65rem;
+  padding-right: 0.5rem;
   min-width: 100%;
   border-left: 0.35em solid #ff0078;
+  overflow: hidden;
 }

@@ -42,14 +42,14 @@ First, specify the version. (2 refers to the newest serverless version of now, t
 {
     "version": 2,
     //highlight-next-line
-    "builds": [
+    "builds": [                                         
 
         //highlight-next-line
-        { "src": "package.json", "use": "@now/next" }
+        { "src": "package.json", "use": "@now/next" }   
 
     //highlight-next-line
-    ]
-    
+    ]                                                   
+
 }
 ```
 
