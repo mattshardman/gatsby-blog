@@ -10,6 +10,7 @@ import { rhythm } from "../utils/typography"
 import Background from "../components/Background"
 import Mac from "../components/Mac"
 import Button from "../components/MainButton"
+import IPhone from "../components/Iphone";
 
 const Container = styled.div`
   position: relative;
@@ -19,6 +20,10 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 600px) {
+    padding-top: 60px;
+  }
 `
 
 const ButtonSection = styled.div`
@@ -27,6 +32,14 @@ const ButtonSection = styled.div`
   display: flex;
   justify-content: space-between;
   width: 400px;
+
+  @media (max-width: 600px) {
+    position: static;
+    padding-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+  }
 `
 
 function Home({ data, location }) {
@@ -38,9 +51,10 @@ function Home({ data, location }) {
       <Background />
       <Container>
         <Mac />
+        <IPhone />
         <ButtonSection>
           <Button text="projects" color="#fff" background="#24292e" />
-          <Button text="github" icon={<FaGithub />} />
+          <Button text="github" icon={<FaGithub />} background="#fff"/>
         </ButtonSection>
       </Container>
     </Layout>

@@ -11,6 +11,10 @@ const Background = styled.div`
   align-items: center;
   justify-content: center;
   perspective: 800px;
+
+  @media (max-width: 600px){
+    display: none;
+  }
 `
 
 const ScreenSection = styled.div`
@@ -102,7 +106,7 @@ const Mac = ({ isMobile, children }) => {
             justify-content: center;
             align-items: center;
           }
-          
+
           .bottom-screen-section {
             width: 100%;
             background: rgb(30, 30, 30);
