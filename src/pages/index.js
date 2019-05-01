@@ -1,145 +1,73 @@
 import React from "react"
 import styled from "styled-components"
 import { Link, graphql } from "gatsby"
+import { FaGithub } from 'react-icons/fa';
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
+import Background from "../components/Background"
+import Mac from "../components/Mac"
+import Button from "../components/MainButton"
+import IPhone from "../components/Iphone";
 
-const PostsWrapper = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-
-  @media (max-width: 600px) {
-    flex-direction: column;
-  }
-`
-
-const Post = styled(props => <Link {...props} />)`
+const Container = styled.div`
   position: relative;
-  width: 30%;
-  padding: 20px;
-  margin: 1.5%;
-  border-radius: 5px;
-  border: 1px #dadce0 solid;
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: box-shadow 420ms, width 420ms, transform 420ms;
-
-  @media (max-width: 900px) {
-    width: 47%;
-  }
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: 600px) {
-    width: 100%;
-    margin: 10px 0;
-  }
-
-  &:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding-top: 60px;
   }
 `
 
-const Date = styled.div`
-  box-sizing: border-box;
-  width: calc(100% - 40px);
+const ButtonSection = styled.div`
   position: absolute;
-  bottom: 15px;
-  left: 20px;
-  color: #000;
+  bottom: 12%;
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+
+  @media (max-width: 600px) {
+    position: static;
+    padding-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+  }
 `
 
-class BlogIndex extends React.Component {
-  render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMarkdownRemark.edges
+function Home({ data, location }) {
+  const siteTitle = data.site.siteMetadata.title
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO
-          title="All posts"
-          keywords={[`blog`, `gatsby`, `javascript`, `react`]}
-        />
-        <h2 style={{ margin: "0 20px 20px 20px" }}>
-          Blog
-        </h2>
-        <PostsWrapper>
-          {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
-            return (
-              <Post key={node.fields.slug} to={node.fields.slug}>
-                <img
-                  src={node.frontmatter.image}
-                  alt=""
-                  style={{ marginBottom: 10 }}
-                />
-                <h3
-                  style={{
-                    margin: 0,
-                    marginBottom: 12,
-                    color: "#484848",
-                  }}
-                >
-                  <Link
-                    style={{ boxShadow: `none`, color: "#2B2B2B" }}
-                    to={node.fields.slug}
-                  >
-                    {title}
-                  </Link>
-                </h3>
-
-                <p
-                  style={{
-                    color: "#767676",
-                    fontWeight: 400,
-                    textAlign: "justify",
-                    margin: "12px 0",
-                    lineHeight: 1.5,
-                    marginBottom: 35,
-                  }}
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-                <Date>
-                  <small style={{ margin: 0 }}>{node.frontmatter.date.toUpperCase()}</small>
-                </Date>
-              </Post>
-            )
-          })}
-        </PostsWrapper>
-      </Layout>
-    )
-  }
+  return (
+    <Layout location={location} title={siteTitle}>
+      <SEO title="Home" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
+      <Background />
+      <Container>
+        <Mac />
+        <IPhone />
+        <ButtonSection>
+          <Button text="projects" color="#fff" background="#24292e" />
+          <Button text="github" icon={<FaGithub />} background="#fff"/>
+        </ButtonSection>
+      </Container>
+    </Layout>
+  )
 }
 
-export default BlogIndex
+export default Home
 
 export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
         title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            image
-            description
-          }
-        }
       }
     }
   }

@@ -1,12 +1,13 @@
 import React from 'react';
-import { FaBook, FaGithub } from 'react-icons/fa';
+import BM from "@material-ui/icons/Book"
+import { FaGithub } from 'react-icons/fa';
 
 export const headerData = {
     avatarImage: 'https://image.flaticon.com/icons/svg/374/374980.svg', //eslint-disable-line
     menuItems: [
-      { title: 'BLOG', icon: <FaBook style={{ marginRight: 10 }} />, link: '/' },
+      { title: 'BLOG', icon: <BM style={{ marginRight: 10, fontSize: 18 }} />, link: '/blog' },
       { title: 'GITHUB', icon: <FaGithub style={{ marginRight: 10 }} /> },
-      { title: 'CONTACT', color: '#f442e5', link: 'https://www.matt.cat/contact' },
+      { title: 'CONTACT', color: '#f442e5', link: '/contact' },
     ],
   };
   

@@ -28,7 +28,6 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: Cabin;
   transition: height 420ms;
 
   @media (max-width: 600px) {
@@ -103,7 +102,6 @@ const MobileItem = styled.a`
 
 const MobileTitle = styled.small`
   font-size: 14px;
-  font-family: Cabin;
 `
 
 const MobileIcon = styled.div`
