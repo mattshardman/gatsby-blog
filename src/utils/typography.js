@@ -2,10 +2,10 @@ import Typography from "typography"
 import fun from "typography-theme-funston"
 
 fun.baseFontSize = "16px"
-fun.headerFontFamily = ["Cabin"]
+fun.headerFontFamily = ["Source Sans Pro"]
 fun.headerWeight = 800
 
-fun.bodyFontFamily = ["Cabin"]
+fun.bodyFontFamily = ["Source Sans Pro"]
 
 fun.overrideThemeStyles = () => {
   return {

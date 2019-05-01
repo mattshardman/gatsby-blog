@@ -12,7 +12,7 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Cabin`,
+            family: `Source Sans Pro`,
             variants: [`400`, `700`]
           },
           {
