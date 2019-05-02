@@ -1,53 +1,88 @@
 import React from "react"
 import styled from "styled-components"
 
-const Container = styled.div`
+const Container = styled.section`
+  width: 100%;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0;
+  background: #fafbfc;
+  border-top: 1px #eaeaea solid;
+  border-bottom: 1px #eaeaea solid;
+`
+
+const Header = styled.div`
+  display: flex;
+  align-items: flex-end;
+`
+
+const Heading = styled.p`
+  font-size: 20px;
+  margin-bottom: 0;
+`
+
+const Wrapper = styled.div`
   width: 100%;
-  height: 250px;
-  background: #eaeaea;
-  /* display: flex;
-  align-items: center; */
-  border-top: 1px #ddd solid;
-  border-bottom: 1px #ddd solid;
-  overflow-X: scroll;
+  overflow-X: hidden;
+
+  @media (min-width: 600px) {
+    display: flex;
+    justify-content: center;
+  }
 `
 
 const LogoWrapper = styled.div`
   width: 1200px;
-  height: 250px;
+  height: 125px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10%;
+  padding: 0;
+
+  @media (max-width: 600px) {
+    animation: slide 10s infinite linear;
+  }
   
+  @keyframes slide {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
 `
 
 const ImgWrapper = styled.div`
-  margin: 0 20px;
+  margin: 0;
   padding: 0;
-  height: 50px;
   filter: grayscale(100%);
 `
 
 const logos = [
-  "https://seeklogo.com/images/N/next-js-logo-7929BCD36F-seeklogo.com.png",
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/640px-React-icon.svg.png",
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/1280px-Docker_%28container_engine%29_logo.svg.png",
-  "https://www.cloudcms.com/documentation/graphql/graphql-logo.png",
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Node.js_logo_2015.svg/1280px-Node.js_logo_2015.svg.png",
+  "https://res.cloudinary.com/dgdniqfi9/image/upload/v1556814021/blog/logos.png",
+  "https://res.cloudinary.com/dgdniqfi9/image/upload/v1556815131/blog/logos2.png",
 ]
 
 function Tech() {
   return (
     <Container>
+      <Header>
+        <Heading>Tech I Like</Heading>
+      </Header>
+      <Wrapper>
         <LogoWrapper>
-      {logos.map(logo => (
-        <ImgWrapper>
-          <img src={logo} 
-          height="100%" style={{ padding: 0, margin: 0 }} />
-        </ImgWrapper>
-      ))}
-      </LogoWrapper>
+          {logos.map(logo => (
+            <ImgWrapper>
+              <img 
+                src={logo} 
+                style={{ padding: 0, margin: 0 }} 
+              />
+            </ImgWrapper>
+          ))}
+        </LogoWrapper>
+      </Wrapper>
     </Container>
   )
 }
