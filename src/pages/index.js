@@ -11,6 +11,7 @@ import Background from "../components/Background"
 import Mac from "../components/Mac"
 import Button from "../components/MainButton"
 import IPhone from "../components/Iphone";
+import Tech from "../components/Tech";
 
 const Container = styled.div`
   position: relative;
@@ -57,6 +58,7 @@ function Home({ data, location }) {
           <Button text="github" icon={<FaGithub />} background="#fff"/>
         </ButtonSection>
       </Container>
+      <Tech />
     </Layout>
   )
 }

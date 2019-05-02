@@ -10,6 +10,7 @@ import { rhythm, scale } from "../utils/typography"
 const Wrapper = styled.article`
   width: 600px;
   max-width: 100%;
+  padding: 0 5%;
   padding-top: 100px;
 `
 
