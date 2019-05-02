@@ -6,11 +6,32 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
+import PostCard from "../components/PostCard"
+
+const Header = styled.div`
+  margin-top: 75px;
+  margin-bottom: 20px;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: #eaeaea solid 1px;
+`
+
+const Heading = styled.h2`
+  font-size: 35px;
+  margin: 0;
+  padding: 0;
+`
 
 const PostsWrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  width: 1200px;
+  max-width: 100%;
+  padding: 0 5%;
 
   @media (max-width: 600px) {
     flex-direction: column;
@@ -23,7 +44,7 @@ const Post = styled(props => <Link {...props} />)`
   padding: 20px;
   margin: 1.5%;
   border-radius: 5px;
-  border: 1px #dadce0 solid; a
+  border: 1px #dadce0 solid;
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: box-shadow 420ms, width 420ms, transform 420ms;
@@ -64,53 +85,12 @@ class BlogIndex extends React.Component {
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <div style={{ height: 100 }}></div>
-        <h2 style={{ margin: "0 20px 20px 20px" }}>
-          Blog
-        </h2>
+        <Header>
+          <Heading>Blog</Heading>
+        </Header>
         <PostsWrapper>
           {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
-            return (
-              <Post key={node.fields.slug} to={node.fields.slug}>
-                <img
-                  src={node.frontmatter.image}
-                  alt=""
-                  style={{ marginBottom: 10 }}
-                />
-                <h3
-                  style={{
-                    margin: 0,
-                    marginBottom: 12,
-                    color: "#484848",
-                  }}
-                >
-                  <Link
-                    style={{ boxShadow: `none`, color: "#2B2B2B" }}
-                    to={node.fields.slug}
-                  >
-                    {title}
-                  </Link>
-                </h3>
-
-                <p
-                  style={{
-                    color: "#767676",
-                    fontWeight: 400,
-                    textAlign: "justify",
-                    margin: "12px 0",
-                    lineHeight: 1.5,
-                    marginBottom: 35,
-                  }}
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-                <Date>
-                  <small style={{ margin: 0 }}>{node.frontmatter.date.toUpperCase()}</small>
-                </Date>
-              </Post>
-            )
+            return <PostCard key={node.fields.slug} node={node} />
           })}
         </PostsWrapper>
       </Layout>

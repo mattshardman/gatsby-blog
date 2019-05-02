@@ -17,9 +17,9 @@ class Layout extends React.Component {
           style={{
             marginLeft: `auto`,
             marginRight: `auto`,
-            width: 1200,
+            // width: 1200,
             maxWidth: "100%",
-            padding: `0 5%`,
+            // padding: `0 5%`,
             display: "flex",
             flexDirection: 'column',
             justifyContent: "center",
