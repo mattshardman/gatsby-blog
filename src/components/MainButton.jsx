@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 const Button = styled.button`
   color: ${({ color }) => color};
   background: ${({ background }) => background};
-  border: ${({ borderColor }) => `1px solid ${borderColor}`};
+  border: none;
   width: 180px;
   height: 40px;
   margin: 0;
