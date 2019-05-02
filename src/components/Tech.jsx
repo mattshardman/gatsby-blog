@@ -17,7 +17,7 @@ const Header = styled.div`
   align-items: flex-end;
 `
 
-const Heading = styled.p`
+const Heading = styled.h4`
   font-size: 20px;
   margin-bottom: 0;
 `
@@ -34,7 +34,7 @@ const Wrapper = styled.div`
 
 const LogoWrapper = styled.div`
   width: 1200px;
-  height: 125px;
+  padding-bottom: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -57,7 +57,7 @@ const LogoWrapper = styled.div`
 const ImgWrapper = styled.div`
   margin: 0;
   padding: 0;
-  filter: grayscale(100%);
+  filter: grayscale(100%) brightness(50%);
 `
 
 const logos = [
@@ -68,9 +68,9 @@ const logos = [
 function Tech() {
   return (
     <Container>
-      <Header>
-        <Heading>Tech I Like</Heading>
-      </Header>
+      {/* <Header>
+        <Heading>Tech I Love</Heading>
+      </Header> */}
       <Wrapper>
         <LogoWrapper>
           {logos.map(logo => (

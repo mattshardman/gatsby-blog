@@ -25,7 +25,7 @@ const Button = styled.button`
   &:hover {
     transform: translateY(-1px);
     background: ${({ background }) => background};
-    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 7px 12px rgba(0, 0, 0, 0.2);
   }
 
   &:active,
