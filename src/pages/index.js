@@ -12,6 +12,7 @@ import Mac from "../components/Mac"
 import Button from "../components/MainButton"
 import IPhone from "../components/Iphone";
 import Tech from "../components/Tech";
+import Projects from "../components/Projects";
 
 const Container = styled.div`
   position: relative;
@@ -59,6 +60,7 @@ function Home({ data, location }) {
         </ButtonSection>
       </Container>
       <Tech />
+      <Projects />
     </Layout>
   )
 }

@@ -37,7 +37,7 @@ const LogoWrapper = styled.div`
   padding-bottom: 50px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0;
 
   @media (max-width: 600px) {
@@ -57,7 +57,9 @@ const LogoWrapper = styled.div`
 const ImgWrapper = styled.div`
   margin: 0;
   padding: 0;
-  filter: grayscale(100%) brightness(50%);
+  display: flex;
+  align-items: center;
+  filter: grayscale(100%) brightness(40%);
 `
 
 const logos = [
@@ -77,7 +79,7 @@ function Tech() {
             <ImgWrapper>
               <img 
                 src={logo} 
-                style={{ padding: 0, margin: 0 }} 
+                style={{ padding: 0, margin: 0, width: 400 }} 
               />
             </ImgWrapper>
           ))}
