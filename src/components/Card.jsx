@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Post = styled.div`
   position: relative;
-  width: 300px;
+  width: 320px;
   max-width: 75%;
   padding: 20px;
   border-radius: 5px;

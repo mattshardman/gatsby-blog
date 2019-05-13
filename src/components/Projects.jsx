@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import PostCard from './PostCard';
 import Card from './Card';
 
 const Container = styled.section`
@@ -15,19 +14,17 @@ const Container = styled.section`
 
 const Cards = styled.div`
     display: flex; 
-    justify-content: center;
-    /* width: 150%; */
     padding: 50px 5%;
-    transform: ${({ active }) => `translateX(${-(active * 300 - 600)}px)`};
+    transform: ${({ active }) => `translateX(${-(active * 320 - 640)}px)`};
     transition: transform 420ms;
 `;
 
 const cards = [
-  { title: 'One', src: '' },
+  { title: 'One', src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1556614940/blog/now.png' },
   { title: 'Two', src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1552990006/portfolio/Screenshot_2019-03-19_at_10.06.23.png' },
   { title: 'Three', src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1552897944/portfolio/Screenshot_2019-03-18_at_08.32.09.png' },
   { title: 'Four', src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1552990038/portfolio/Screenshot_2019-03-19_at_10.06.54.png' },
-  { title: 'Five', src: '' },
+  { title: 'Five', src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1543249109/portfolio/raal-training.png' },
 ];
 
 function Projects() {

@@ -1,18 +1,18 @@
-import React from "react"
-import styled from "styled-components"
-import { Link, graphql } from "gatsby"
+import React from 'react';
+import styled from 'styled-components';
+import { graphql } from 'gatsby';
 import { FaGithub } from 'react-icons/fa';
+import { Fade } from 'react-reveal';
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
-import Background from "../components/Background"
-import Mac from "../components/Mac"
-import Button from "../components/MainButton"
-import IPhone from "../components/Iphone";
-import Tech from "../components/Tech";
-import Projects from "../components/Projects";
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import Background from '../components/Background';
+import Mac from '../components/mac/Mac';
+import Button from '../components/MainButton';
+import IPhone from '../components/Iphone';
+import Tech from '../components/Tech';
+import Projects from '../components/Projects';
+import Dock from '../components/mac/Dock';
 
 const Container = styled.div`
   position: relative;
@@ -26,7 +26,7 @@ const Container = styled.div`
   @media (max-width: 600px) {
     padding-top: 60px;
   }
-`
+`;
 
 const ButtonSection = styled.div`
   position: absolute;
@@ -42,30 +42,40 @@ const ButtonSection = styled.div`
     align-items: center;
     width: 80%;
   }
-`
+`;
 
 function Home({ data, location }) {
-  const siteTitle = data.site.siteMetadata.title
+  const siteTitle = data.site.siteMetadata.title;
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Home" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
+      <SEO title="Home" keywords={['blog', 'gatsby', 'javascript', 'react']} />
+
       <Background />
+
       <Container>
-        <Mac />
+        <Fade delay={200}>
+          <Mac>
+            <Dock />
+          </Mac>
+        </Fade>
         <IPhone />
+
         <ButtonSection>
-          <Button text="projects" color="#fff" background="#24292e" />
-          <Button text="github" icon={<FaGithub />} background="#fff"/>
+          <Fade delay={500}>
+            <Button text="projects" color="#fff" background="#24292e" />
+            <Button text="github" icon={<FaGithub />} background="#fff" />
+          </Fade>
         </ButtonSection>
+
       </Container>
       <Tech />
       <Projects />
     </Layout>
-  )
+  );
 }
 
-export default Home
+export default Home;
 
 export const pageQuery = graphql`
   query {
@@ -75,4 +85,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

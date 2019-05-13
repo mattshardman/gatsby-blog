@@ -1,7 +1,5 @@
-import React from "react"
-import styled from "styled-components"
-
-// const backgroundImage = "https://res.cloudinary.com/dgdniqfi9/image/upload/c_scale,w_400/v1542793648/bounce/space-desk.jpg"; //eslint-disable-line
+import React from 'react';
+import styled from 'styled-components';
 
 const Background = styled.div`
   width: ${({ cw }) => `${cw}px`};
@@ -15,7 +13,7 @@ const Background = styled.div`
   @media (max-width: 600px){
     display: none;
   }
-`
+`;
 
 const ScreenSection = styled.div`
   height: ${({ screenHeight }) => `${screenHeight}px`};
@@ -31,8 +29,9 @@ const ScreenSection = styled.div`
   align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.19),
     0 0 0 3px #7d7d7d;
-`
+`;
 const Screen = styled.div`
+  position: relative;
   width: 96%;
   height: 89%;
   background: linear-gradient(100deg, red, purple);
@@ -41,24 +40,24 @@ const Screen = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const Mac = ({ isMobile, children }) => {
-  const cw = 750
-  const screenHeight = cw * 0.47
-  const screenWidth = cw * 0.7
-  const baseWidth = cw * 0.88
-  const baseHeight = cw * 0.025
+  const cw = 750;
+  const screenHeight = cw * 0.47;
+  const screenWidth = cw * 0.7;
+  const baseWidth = cw * 0.88;
+  const baseHeight = cw * 0.025;
 
-  const cameraSectionHeight = cw * 0.01
-  const cameraSectionWidth = cw * 0.025
-  const cameraLensSize = cw * 0.005
-  const innerCameraLensSize = cw * 0.005
+  const cameraSectionHeight = cw * 0.01;
+  const cameraSectionWidth = cw * 0.025;
+  const cameraLensSize = cw * 0.005;
+  const innerCameraLensSize = cw * 0.005;
 
-  const notchWidth = cw * 0.08
-  const notchHeight = cw * 0.01
+  const notchWidth = cw * 0.08;
+  const notchHeight = cw * 0.01;
 
-  const baseUnderSideHeight = cw * 0.01
+  const baseUnderSideHeight = cw * 0.01;
 
   return (
     <Background cw={cw}>
@@ -156,7 +155,7 @@ const Mac = ({ isMobile, children }) => {
         `}
       </style>
     </Background>
-  )
-}
+  );
+};
 
-export default Mac
+export default Mac;
