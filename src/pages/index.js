@@ -62,10 +62,8 @@ function Home({ data, location }) {
         <IPhone />
 
         <ButtonSection>
-          <Fade delay={500}>
-            <Button text="projects" color="#fff" background="#24292e" />
-            <Button text="github" icon={<FaGithub />} background="#fff" />
-          </Fade>
+          <Button text="projects" color="#fff" background="#24292e" />
+          <Button text="github" icon={<FaGithub />} background="#fff" />
         </ButtonSection>
 
       </Container>
