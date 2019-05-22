@@ -6,6 +6,6 @@
       { "src": "api/send/index.go", "use": "@now/go" }
     ],
     "env": {
-      "SENDGRID_API_KEY": "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"
+      "SENDGRID_API_KEY": "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"
     }
   }
