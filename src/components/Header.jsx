@@ -111,7 +111,7 @@ const MobileIcon = styled.div`
 `;
 
 function Header({
-  isMobile, isTablet, avatarImage, menuItems,
+  isMobile, isTablet, menuItems,
 }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -171,8 +171,7 @@ function Header({
 Header.propTypes = {
   isMobile: PropTypes.bool.isRequired,
   isTablet: PropTypes.bool.isRequired,
-  avatarImage: PropTypes.string.isRequired,
-  menuItems: PropTypes.array.isRequired, //eslint-disable-line
+  menuItems: PropTypes.arrayOf().isRequired,
 };
 
 export default Header;
