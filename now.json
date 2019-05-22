@@ -4,5 +4,8 @@
     "builds": [
       { "use": "@now/static-build", "src": "package.json", "config": { "distDir": "public" } },
       { "src": "api/send/index.go", "use": "@now/go" }
-    ]
+    ],
+    "env": {
+      "SENDGRID_API_KEY": "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"
+    }
   }
