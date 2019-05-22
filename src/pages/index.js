@@ -13,6 +13,7 @@ import IPhone from '../components/Iphone';
 import Tech from '../components/Tech';
 import Projects from '../components/Projects';
 import Dock from '../components/mac/Dock';
+import Terminal from '../components/mac/Terminal';
 
 const Container = styled.div`
   position: relative;
@@ -56,6 +57,7 @@ function Home({ data, location }) {
       <Container>
         <Fade delay={200}>
           <Mac>
+            <Terminal />
             <Dock />
           </Mac>
         </Fade>

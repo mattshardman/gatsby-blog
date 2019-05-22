@@ -25,9 +25,6 @@ const Button = styled.button`
   opacity: 0;
   animation-fill-mode: forwards;
   animation-delay: 1s;
-  /* animation-name: fade;
-  animation-duration: 1s;
-  animation-iteration-count: 1; */
   animation: fade 1.5s forwards 1;
 
   &:hover {
