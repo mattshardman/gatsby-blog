@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Avatar } from '@material-ui/core';
 import MessageBubble from './MessageBubble';
+import Avatar from '../Avatar';
 
 const Container = styled.div`
     position: relative;
@@ -35,6 +35,11 @@ const Heading = styled.div`
     border-bottom: 1px solid #eaeaea;
 `;
 
+const BackArrow = styled.div`
+    position: absolute;
+    left: 10px;
+`;
+
 const Text = styled.div`
     width: 100%;
     position: absolute;
@@ -46,7 +51,8 @@ function IPhoneApp() {
     <Container>
       <Heading>
         <Avatar />
-        <small style={{ padding: 5 }}>Matt</small>
+        <small style={{ padding: 5, color: '#ff0078' }}>Matt</small>
+        <BackArrow>{'<'}</BackArrow>
       </Heading>
       <Text>
         <MessageBubble>
