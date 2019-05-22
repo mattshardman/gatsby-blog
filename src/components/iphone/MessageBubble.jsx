@@ -79,7 +79,7 @@ const MessageBubble = ({ children, right = false }) => (
           height: 22px;
           border-radius: 50%;
           border: 1px #eaeaea solid;
-          background: #F7F9FC;
+          background: #fff;
         }
 
         .circle-right {
