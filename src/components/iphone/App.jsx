@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Arrow from '@material-ui/icons/ArrowBackIos';
 
+import { Fade } from 'react-reveal';
 import MessageBubble from './MessageBubble';
 import Avatar from '../Avatar';
 
@@ -59,12 +60,16 @@ function IPhoneApp() {
         <BackArrow><Arrow style={{ fontSize: 12 }} /></BackArrow>
       </Heading>
       <Text>
-        <MessageBubble>
+        <Fade delay={1500} left>
+          <MessageBubble>
           Hi I&apos;m Matt.
-        </MessageBubble>
-        <MessageBubble>
+          </MessageBubble>
+        </Fade>
+        <Fade delay={2000} left>
+          <MessageBubble>
           I am a full-stack javascript developer from the UK.
-        </MessageBubble>
+          </MessageBubble>
+        </Fade>
       </Text>
     </Container>
   );

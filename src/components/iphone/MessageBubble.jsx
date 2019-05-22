@@ -45,7 +45,7 @@ const MessageBubble = ({ children, right = false }) => (
           box-sizing: border-box;
           border-radius: ${right ? '20px 0px 20px 20px' : '0px 20px 20px 20px'};
           border: 1px solid #eaeaea;
-          background: ${right ? '#eaeaea' : '#fff'}
+          background: #eaeaea;
         }
 
         .cut-out {
@@ -56,7 +56,7 @@ const MessageBubble = ({ children, right = false }) => (
           width: 20px;
           border-left: 1px solid #eaeaea;
           overflow: hidden;
-          background: #fff;
+          background:#eaeaea;
         }
 
         .cut-out-right {
