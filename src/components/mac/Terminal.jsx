@@ -25,18 +25,20 @@ const Button = styled.div`
     background: ${({ color }) => color};
 `;
 
-const Body = styled.div`
+const Body = styled.pre`
     height: 90%;
     width: 100%;
     padding: 5%;
     color: #fff;
     font-size: 12px;
+    outline: none;
 `;
 
-const textData = 'I\'m Matt. I am a full-stack Javascript developer from the UK.';
+const textData = 'I\'m Matt.\n$ I am a full-stack Javascript developer \n from the UK.';
 
 function Terminal() {
   const [text, setText] = useState('');
+  const [addedText, setAddedText] = useState('');
 
   useEffect(() => {
     let count = 0;
@@ -47,15 +49,36 @@ function Terminal() {
       } else {
         clearInterval(textRender);
       }
-    }, 40);
+    }, 0);
   }, []);
 
+  useEffect(() => {
+    const body = document.getElementById('body');
+    body.addEventListener('input', ({ data }) => {
+      setAddedText((prev) => {
+        if (!data) {
+          return prev;
+        }
+        return prev + data;
+      });
+    });
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('keydown', ({ keyCode }) => {
+      if (keyCode === '13') {
+        setText(prev => `${prev}$`);
+      }
+    });
+  }, []);
+
+  console.log(addedText);
   return (
     <Container>
       <TopBar>
         { ['red', 'orange', 'green'].map(btn => <Button color={btn} />)}
       </TopBar>
-      <Body>
+      <Body contentEditable id="body">
         $ {text}
       </Body>
     </Container>
