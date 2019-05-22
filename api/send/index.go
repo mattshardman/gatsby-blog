@@ -7,7 +7,9 @@ import (
 )
 
 type Message struct {
-	Name string `json:"name"`
+	Name    string `json:"name"`
+	Email   string `json:"email"`
+	Message string `json:"message"`
 }
 
 func Handler(w http.ResponseWriter, r *http.Request) {
