@@ -25,13 +25,39 @@ const Button = styled.div`
     background: ${({ color }) => color};
 `;
 
+const Body = styled.div`
+    height: 90%;
+    width: 100%;
+    padding: 5%;
+    color: #fff;
+    font-size: 12px;
+`;
+
+const textData = 'I\'m Matt. I am a full-stack Javascript developer from the UK.';
+
 function Terminal() {
-  const [text, setText] = useState();
+  const [text, setText] = useState('');
+
+  useEffect(() => {
+    let count = 0;
+    const textRender = setInterval(() => {
+      if (textData[count]) {
+        setText(prev => prev + textData[count]);
+        count += 1;
+      } else {
+        clearInterval(textRender);
+      }
+    }, 40);
+  }, []);
+
   return (
     <Container>
       <TopBar>
         { ['red', 'orange', 'green'].map(btn => <Button color={btn} />)}
       </TopBar>
+      <Body>
+        $ {text}
+      </Body>
     </Container>
   );
 }
