@@ -28,7 +28,7 @@ const Button = styled.div`
 const Body = styled.pre`
     height: 90%;
     width: 100%;
-    padding: 5%;
+    padding: 10px 5%;
     color: #fff;
     font-size: 12px;
     outline: none;
@@ -38,7 +38,7 @@ const textData = 'I\'m Matt.\n$ I am a full-stack Javascript developer \n from t
 
 function Terminal() {
   const [text, setText] = useState('');
-  const [addedText, setAddedText] = useState('');
+  //   const [addedText, setAddedText] = useState('');
 
   useEffect(() => {
     let count = 0;
@@ -49,30 +49,21 @@ function Terminal() {
       } else {
         clearInterval(textRender);
       }
-    }, 0);
+    }, 40);
   }, []);
 
-  useEffect(() => {
-    const body = document.getElementById('body');
-    body.addEventListener('input', ({ data }) => {
-      setAddedText((prev) => {
-        if (!data) {
-          return prev;
-        }
-        return prev + data;
-      });
-    });
-  }, []);
+  //   useEffect(() => {
+  //     const body = document.getElementById('body');
+  //     body.addEventListener('input', ({ data }) => {
+  //       setAddedText((prev) => {
+  //         if (!data) {
+  //           return prev;
+  //         }
+  //         return prev + data;
+  //       });
+  //     });
+  //   }, []);
 
-  useEffect(() => {
-    document.addEventListener('keydown', ({ keyCode }) => {
-      if (keyCode === '13') {
-        setText(prev => `${prev}$`);
-      }
-    });
-  }, []);
-
-  console.log(addedText);
   return (
     <Container>
       <TopBar>

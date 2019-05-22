@@ -1,5 +1,5 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react';
+import styled from 'styled-components';
 
 const Container = styled.div`
   height: 400px;
@@ -16,9 +16,10 @@ const Container = styled.div`
   @media (min-width: 600px) {
     display: none;
   }
-`
+`;
 
 const Screen = styled.div`
+  display: relative;
   height: 380px;
   width: 180px;
   border-radius: 14px;
@@ -27,16 +28,20 @@ const Screen = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-`
+  overflow: hidden;
+`;
 
 const TopSection = styled.div`
+  display: absolute;
+  top: 0;
   width: 100%;
   height: 3.5%;
   display: flex;
   justify-content: center;
-`
+`;
 
 const Notch = styled.div`
+  z-index: 1;
   width: 55%;
   height: 100%;
   background: black;
@@ -44,7 +49,7 @@ const Notch = styled.div`
   border-bottom-right-radius: 10px;
   display: flex;
   justify-content: center;
-`
+`;
 
 const Speaker = styled.div`
   width: 30%;
@@ -52,7 +57,7 @@ const Speaker = styled.div`
   background: rgb(30, 30, 30);
   border-radius: 5px;
   margin-top: 1px;
-`
+`;
 
 const Camera = styled.div`
   position: absolute;
@@ -62,9 +67,17 @@ const Camera = styled.div`
   background: linear-gradient(175deg, #024993, black);
   margin-left: 20px;
   border-radius: 50%;
-`
+`;
 
-function IPhone({ backgroundImage, children }) {
+const Content = styled.div`
+  position: absolute;
+  height: 380px;
+  width: 180px;
+  border-radius: 14px;
+  overflow: hidden;
+`;
+
+function IPhone({ children }) {
   return (
     <Container>
       <Screen>
@@ -74,11 +87,12 @@ function IPhone({ backgroundImage, children }) {
             <Camera />
           </Notch>
         </TopSection>
-        {children}
+        <Content>
+          {children}
+        </Content>
       </Screen>
-      <div />
     </Container>
-  )
+  );
 }
 
-export default IPhone
+export default IPhone;

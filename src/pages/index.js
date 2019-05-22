@@ -9,11 +9,12 @@ import SEO from '../components/seo';
 import Background from '../components/Background';
 import Mac from '../components/mac/Mac';
 import Button from '../components/MainButton';
-import IPhone from '../components/Iphone';
+import IPhone from '../components/iphone/Iphone';
 import Tech from '../components/Tech';
 import Projects from '../components/Projects';
 import Dock from '../components/mac/Dock';
 import Terminal from '../components/mac/Terminal';
+import IPhoneApp from '../components/iphone/App';
 
 const Container = styled.div`
   position: relative;
@@ -61,7 +62,9 @@ function Home({ data, location }) {
             <Dock />
           </Mac>
         </Fade>
-        <IPhone />
+        <IPhone>
+          <IPhoneApp />
+        </IPhone>
 
         <ButtonSection>
           <Button text="projects" color="#fff" background="#24292e" />
