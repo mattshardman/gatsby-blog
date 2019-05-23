@@ -40,10 +40,16 @@ function Contact() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
+
     console.log(name, email, message);
-    
+
+    const result = await axios.post('/api/send', {
+      name, email, message,
+    });
+
+    console.log(result);
   };
 
   return (
