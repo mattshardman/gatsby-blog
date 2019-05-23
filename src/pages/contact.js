@@ -35,6 +35,11 @@ const Input = styled.input`
   border: 1px rgba(0, 0, 0, 0.1) solid;
 `;
 
+const ButtonDiv = styled.div`
+  position: absolute;
+  bottom: 0;
+`;
+
 function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -42,8 +47,6 @@ function Contact() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-
-    console.log(name, email, message);
 
     const result = await axios.post('/api/send', {
       name, email, message,
@@ -67,7 +70,9 @@ function Contact() {
           <Fade delay={1400}>
             <Input type="text" placeholder="Message" value={message} onChange={e => setMessage(e.target.value)} />
           </Fade>
-          <MainButton type="submit" text="send" background="#24292e" color="#fff" />
+          <ButtonDiv>
+            <MainButton type="submit" text="send" background="#24292e" color="#fff" />
+          </ButtonDiv>
         </ContactForm>
       </Container>
     </Layout>
