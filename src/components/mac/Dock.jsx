@@ -19,27 +19,33 @@ const Container = styled.div`
 
 const transformFunction = ({ isActive, elementNumber }) => {
   if (isActive === elementNumber) {
-    return 'scale(1.2) translateY(-3px)';
+    return 'scale(1.3)';
   }
 
   if (isActive !== null && isActive + 1 === elementNumber) {
-    return 'scale(1.1) translateY(-2px)';
+    return 'scale(1.15)';
   }
 
   if (isActive !== null && isActive - 1 === elementNumber) {
-    return 'scale(1.1) translateY(-2px)';
+    return 'scale(1.1)';
   }
 
   return 'scale(1)';
 };
 
-const Img = styled.img`
-    height: 65%;
+const ImgWrapper = styled.div`
+    height: 20px;
+    width: 30px;
     padding: 0 5px;
     margin: 0;
     cursor: pointer;
-    transition: all 1s;
+    transition: all 600ms;
     transform: ${transformFunction};
+    transform-origin: center bottom;
+`;
+
+const Img = styled.img`
+    height: 100%;
 `;
 
 function Dock() {
@@ -47,31 +53,42 @@ function Dock() {
 
   return (
     <Container>
-      <Img
+      <ImgWrapper
         isActive={isActive}
         elementNumber={0}
         onMouseEnter={() => setIsActive(0)}
         onMouseLeave={() => setIsActive(null)}
-        src="https://seeklogo.com/images/C/chrome-logo-D5FECB59EF-seeklogo.com.png"
-        alt=""
-      />
-      <Img
+      >
+        <Img
+
+          src="https://seeklogo.com/images/C/chrome-logo-D5FECB59EF-seeklogo.com.png"
+          alt=""
+        />
+      </ImgWrapper>
+      <ImgWrapper
         isActive={isActive}
         elementNumber={1}
         onMouseEnter={() => setIsActive(1)}
         onMouseLeave={() => setIsActive(null)}
-        src="https://seeklogo.com/images/W/whatsapp-logo-DDC3F9A34F-seeklogo.com.png"
-        alt=""
-      />
-      <Img
+      >
+        <Img
+
+          src="https://seeklogo.com/images/W/whatsapp-logo-DDC3F9A34F-seeklogo.com.png"
+          alt=""
+        />
+      </ImgWrapper>
+      <ImgWrapper
         isActive={isActive}
         elementNumber={2}
         onMouseEnter={() => setIsActive(2)}
         onMouseLeave={() => setIsActive(null)}
-        src="https://seeklogo.com/images/H/hyper-logo-C3FD37FA76-seeklogo.com.png"
-        alt=""
-      />
+      >
+        <Img
 
+          src="https://seeklogo.com/images/H/hyper-logo-C3FD37FA76-seeklogo.com.png"
+          alt=""
+        />
+      </ImgWrapper>
     </Container>
   );
 }
