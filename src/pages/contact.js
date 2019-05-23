@@ -6,6 +6,7 @@ import { Fade } from 'react-reveal';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Background from '../components/Background';
+import MainButton from '../components/MainButton';
 
 const Container = styled.section`
     height: 100vh;
@@ -16,7 +17,7 @@ const Container = styled.section`
     justify-content: center;
 `;
 
-const ContactForm = styled.div`
+const ContactForm = styled.form`
   height: 250px;
   width: 320px;
   display: flex;
@@ -39,23 +40,28 @@ function Contact() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(name, email, message);
+    
+  };
 
   return (
     <Layout>
       <SEO title="Contact" />
       <Background />
       <Container>
-        <ContactForm>
+        <ContactForm onSubmit={submitHandler}>
           <Fade delay={1000}>
-            <Input type="text" placeholder="Name" />
+            <Input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
           </Fade>
           <Fade delay={1200}>
-            <Input type="text" placeholder="Email" />
+            <Input type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
           </Fade>
           <Fade delay={1400}>
-            <Input type="text" placeholder="Message" />
+            <Input type="text" placeholder="Message" value={message} onChange={e => setMessage(e.target.value)} />
           </Fade>
+          <MainButton type="submit" text="send" background="#24292e" color="#fff" />
         </ContactForm>
       </Container>
     </Layout>
