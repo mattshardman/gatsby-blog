@@ -33,7 +33,7 @@ const CardsWrapper = styled.div`
 const Cards = styled.div`
     display: flex; 
     padding: 50px 5%;
-    transform: ${({ active }) => `translateX(${-(active * 320 - 640)}px)`};
+    transform: ${({ active }) => `translateX(${-(active * 320 - 960)}px)`};
     transition: transform 420ms;
 
     @media (max-width: 500px) {
@@ -51,18 +51,34 @@ const cards = [
   { title: 'Three', src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1552897944/portfolio/Screenshot_2019-03-18_at_08.32.09.png' },
   { title: 'Four', src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1552990038/portfolio/Screenshot_2019-03-19_at_10.06.54.png' },
   { title: 'Five', src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1543249109/portfolio/raal-training.png' },
+  { title: 'Six', src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1543249109/portfolio/raal-training.png' },
+  { title: 'Seven', src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1543249109/portfolio/raal-training.png' },
 ];
 
 function Projects() {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
+    if (window.innerWidth > 500) {
+      setActive(3);
+    }
     const cardsWrapper = document.getElementById('cards-wrapper');
     cardsWrapper.addEventListener('scroll', () => {
       const activeEl = Math.floor(cardsWrapper.scrollLeft / 250);
       setActive(activeEl);
     });
   }, []);
+
+  const clickHandler = (index) => {
+    setActive(index);
+    if (window.innerWidth < 500) {
+      const cardsWrapper = document.getElementById('cards-wrapper');
+      cardsWrapper.scrollTo({
+        left: index * 250,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
     <Container>
@@ -74,9 +90,8 @@ function Projects() {
               title={card.title}
               src={card.src}
               active={active === index}
-              setActive={setActive}
+              clickHandler={clickHandler}
               index={index}
-              activeIndex={active}
             />
           ))}
         </Cards>
