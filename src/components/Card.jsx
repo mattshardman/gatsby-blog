@@ -21,6 +21,10 @@ const Post = styled.div`
     opacity: 1;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   }
+
+  @media (max-width: 500px) {
+    width: 250px;
+  }
 `;
 
 const Heading = styled.h3`

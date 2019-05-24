@@ -17,6 +17,10 @@ const Cards = styled.div`
     padding: 50px 5%;
     transform: ${({ active }) => `translateX(${-(active * 320 - 640)}px)`};
     transition: transform 420ms;
+
+    @media (max-width: 500px) {
+      transform: ${({ active }) => `translateX(${-(active * 250 - 500)}px)`};
+    }
 `;
 
 const cards = [
