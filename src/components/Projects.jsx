@@ -58,20 +58,17 @@ const cards = [
 function Projects() {
   const [active, setActive] = useState(0);
 
-  useEffect(() => {
-    if (window.innerWidth > 500) {
-      setActive(3);
-    }
-    const cardsWrapper = document.getElementById('cards-wrapper');
-    cardsWrapper.addEventListener('scroll', () => {
-      const activeEl = Math.floor(cardsWrapper.scrollLeft / 250);
-      setActive(activeEl);
-    });
-  }, []);
+  const scrollListener = (e) => {
+    const activeEl = Math.floor(e.target.scrollLeft / 250);
+    setActive(activeEl);
+  };
 
   const clickHandler = (index) => {
     setActive(index);
-    if (window.innerWidth < 500) {
+
+    const isMobile = window.innerWidth < 500;
+
+    if (isMobile) {
       const cardsWrapper = document.getElementById('cards-wrapper');
       cardsWrapper.scrollTo({
         left: index * 250,
@@ -79,6 +76,14 @@ function Projects() {
       });
     }
   };
+
+  useEffect(() => {
+    const isDesktop = window.innerWidth > 500;
+    if (isDesktop) setActive(3);
+
+    const cardsWrapper = document.getElementById('cards-wrapper');
+    cardsWrapper.addEventListener('scroll', scrollListener);
+  }, []);
 
   return (
     <Container>
