@@ -25,6 +25,7 @@ const Post = styled.div`
 
   @media (max-width: 500px) {
     width: 250px;
+    transform: ${({ active, activeIndex, index }) => (active ? 'scale(1)' : 'scale(0.9)')};
   }
 `;
 
@@ -53,10 +54,10 @@ const Date = styled.div`
 `;
 
 function Card({
-  link, image, title, active, setActive, index, src,
+  link, image, title, active, setActive, index, src, activeIndex,
 }) {
   return (
-    <Post onClick={() => setActive(index)} active={active}>
+    <Post onClick={() => setActive(index)} active={active} activeIndex={activeIndex} index={index}>
       <img src={src} alt="" style={{ marginBottom: 10, border: '1px solid #eaeaea' }} />
       <Heading>
         <div

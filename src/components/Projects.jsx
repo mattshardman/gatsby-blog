@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Card from './Card';
 
@@ -25,6 +25,7 @@ const CardsWrapper = styled.div`
 
   @media (max-width: 500px) {
     overflow: scroll;
+    scroll-snap-type: x mandatory;
     justify-content: flex-start;
   }
 `;
@@ -36,9 +37,11 @@ const Cards = styled.div`
     transition: transform 420ms;
 
     @media (max-width: 500px) {
-      transform: ${({ active }) => `translateX(${-(active * 250)}px)`};
+      transition: transform 220ms;
+      transform: none;
+      padding-left: calc(50% - 125px);
+      padding-right: calc(50% - 125px);
     }
-    scroll-snap-type: x mandatory;
     
 `;
 
@@ -53,10 +56,18 @@ const cards = [
 function Projects() {
   const [active, setActive] = useState(0);
 
+  useEffect(() => {
+    const cardsWrapper = document.getElementById('cards-wrapper');
+    cardsWrapper.addEventListener('scroll', () => {
+      const activeEl = Math.floor(cardsWrapper.scrollLeft / 250);
+      setActive(activeEl);
+    });
+  }, []);
+
   return (
     <Container>
       <h1>Projects</h1>
-      <CardsWrapper>
+      <CardsWrapper id="cards-wrapper">
         <Cards active={active}>
           { cards.map((card, index) => (
             <Card
@@ -65,6 +76,7 @@ function Projects() {
               active={active === index}
               setActive={setActive}
               index={index}
+              activeIndex={active}
             />
           ))}
         </Cards>
