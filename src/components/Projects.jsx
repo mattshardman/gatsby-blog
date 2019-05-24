@@ -59,7 +59,7 @@ function Projects() {
   const [active, setActive] = useState(0);
 
   const scrollListener = (e) => {
-    const activeEl = Math.floor(e.target.scrollLeft / 250);
+    const activeEl = Math.floor((e.target.scrollLeft + 125) / 250);
     setActive(activeEl);
   };
 
