@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Post = styled.div`
+  scroll-snap-align: center;
   position: relative;
   width: 320px;
   max-width: 50%;

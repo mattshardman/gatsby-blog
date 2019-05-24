@@ -12,6 +12,23 @@ const Container = styled.section`
     overflow: hidden;
 `;
 
+const CardsWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: 500px) {
+    overflow: scroll;
+    justify-content: flex-start;
+  }
+`;
+
 const Cards = styled.div`
     display: flex; 
     padding: 50px 5%;
@@ -19,8 +36,10 @@ const Cards = styled.div`
     transition: transform 420ms;
 
     @media (max-width: 500px) {
-      transform: ${({ active }) => `translateX(${-(active * 250 - 500)}px)`};
+      transform: ${({ active }) => `translateX(${-(active * 250)}px)`};
     }
+    scroll-snap-type: x mandatory;
+    
 `;
 
 const cards = [
@@ -32,22 +51,24 @@ const cards = [
 ];
 
 function Projects() {
-  const [active, setActive] = useState(2);
+  const [active, setActive] = useState(0);
 
   return (
     <Container>
       <h1>Projects</h1>
-      <Cards active={active}>
-        { cards.map((card, index) => (
-          <Card
-            title={card.title}
-            src={card.src}
-            active={active === index}
-            setActive={setActive}
-            index={index}
-          />
-        ))}
-      </Cards>
+      <CardsWrapper>
+        <Cards active={active}>
+          { cards.map((card, index) => (
+            <Card
+              title={card.title}
+              src={card.src}
+              active={active === index}
+              setActive={setActive}
+              index={index}
+            />
+          ))}
+        </Cards>
+      </CardsWrapper>
     </Container>
   );
 }
