@@ -51,6 +51,8 @@ const Date = styled.div`
   bottom: 15px;
   left: 20px;
   color: #000;
+  display: flex;
+  justify-content: space-between;
 `;
 
 function Card({
@@ -71,7 +73,8 @@ function Card({
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident ut voluptatum repudiandae quo vel voluptatem vitae.
       </Paragraph>
       <Date>
-        <small style={{ margin: 0 }} />
+        <a>VISIT</a>
+        <a>GITHUB</a>
       </Date>
     </Post>
   );
