@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Post = styled.div`
@@ -56,7 +57,7 @@ const Date = styled.div`
 `;
 
 function Card({
-  index, link, image, title, active, clickHandler, src,
+  index, title, text, buttons, active, clickHandler, src,
 }) {
   return (
     <Post onClick={() => clickHandler(index)} active={active} index={index}>
@@ -70,14 +71,30 @@ function Card({
       </Heading>
 
       <Paragraph>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident ut voluptatum repudiandae quo vel voluptatem vitae.
+        {text}
       </Paragraph>
       <Date>
-        <a>VISIT</a>
-        <a>GITHUB</a>
+        { buttons.map(button => (
+          <a
+            href={button.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >{button.text}
+          </a>
+        )) }
       </Date>
     </Post>
   );
 }
+
+Card.propTypes = {
+  index: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  buttons: PropTypes.arrayOf().isRequired,
+  active: PropTypes.bool.isRequired,
+  clickHandler: PropTypes.func.isRequired,
+  src: PropTypes.string.isRequired,
+};
 
 export default Card;

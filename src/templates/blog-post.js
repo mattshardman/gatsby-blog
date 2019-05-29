@@ -1,11 +1,11 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import styled from "styled-components"
+import React from 'react';
+import { Link, graphql } from 'gatsby';
+import styled from 'styled-components';
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import Bio from '../components/bio';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import { rhythm, scale } from '../utils/typography';
 
 const Wrapper = styled.article`
   width: 600px;
@@ -13,15 +13,16 @@ const Wrapper = styled.article`
   padding-top: 100px;
 
   @media(max-width: 600px) {
-    padding: 0 5%;
+    padding-left: 5%;
+    padding-right: 5%;
   }
-`
+`;
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
+    const post = this.props.data.markdownRemark;
+    const siteTitle = this.props.data.site.siteMetadata.title;
+    const { previous, next } = this.props.pageContext;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -30,13 +31,13 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <Wrapper>
-          <h1 style={{ margin: "10px 0" }}>
+          <h1 style={{ margin: '10px 0' }}>
             {post.frontmatter.title}
           </h1>
           <p
             style={{
               ...scale(-1 / 5),
-              display: `block`,
+              display: 'block',
               marginBottom: rhythm(1),
               marginTop: rhythm(0.25),
             }}
@@ -49,10 +50,10 @@ class BlogPostTemplate extends React.Component {
 
           <ul
             style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-between',
+              listStyle: 'none',
               padding: 0,
               margin: 0,
               marginBottom: 20,
@@ -75,11 +76,11 @@ class BlogPostTemplate extends React.Component {
           </ul>
         </Wrapper>
       </Layout>
-    )
+    );
   }
 }
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -100,4 +101,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

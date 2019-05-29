@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { FaGithub } from 'react-icons/fa';
-import { Fade } from 'react-reveal';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -56,12 +55,10 @@ function Home({ data, location }) {
       <Background />
 
       <Container>
-        <Fade delay={200}>
-          <Mac>
-            <Terminal />
-            <Dock />
-          </Mac>
-        </Fade>
+        <Mac>
+          <Terminal />
+          <Dock />
+        </Mac>
         <IPhone>
           <IPhoneApp />
         </IPhone>
