@@ -56,6 +56,10 @@ const Date = styled.div`
   justify-content: space-between;
 `;
 
+function Image() {
+  
+}
+
 function Card({
   index, title, text, buttons, active, clickHandler, src,
 }) {
