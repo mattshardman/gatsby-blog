@@ -128,7 +128,7 @@ function Header({
   return (
     <Container scrolled={scrolled}>
       <Nav scrolled={scrolled}>
-        <Link to="" style={{ boxShadow: 'none' }}>
+        <Link to="/" style={{ boxShadow: 'none' }}>
           <DesktopMenuItem>
             <Logo isMobile={isMobile} text="Matt.cat" scrolled={scrolled} />
           </DesktopMenuItem>
@@ -137,15 +137,40 @@ function Header({
           <Arrow />
         </MobileButton>
         <DesktopNavOptions>
-          {menuItems.map(each => (
-            <Link to={each.link} key={each.link} style={{ boxShadow: 'none' }}>
-              <DesktopMenuItem>
-                {each.icon && each.icon}
-                <small>{each.title}</small>
-              </DesktopMenuItem>
-            </Link>
-          ))}
+          {menuItems.map((each) => {
+            if (each.external) {
+              return (
+                <a
+                  href={each.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  key={each.link}
+                  style={{ boxShadow: 'none' }}
+                >
+                  <DesktopMenuItem>
+                    {each.icon && each.icon}
+                    <small>{each.title}</small>
+                  </DesktopMenuItem>
+                </a>
+              );
+            }
+
+            return (
+              <Link
+                to={each.link}
+                key={each.link}
+                style={{ boxShadow: 'none' }}
+              >
+                <DesktopMenuItem>
+                  {each.icon && each.icon}
+                  <small>{each.title}</small>
+                </DesktopMenuItem>
+              </Link>
+            );
+          })}
+
           {!isTablet && <Avatar />}
+
         </DesktopNavOptions>
       </Nav>
       {open && (

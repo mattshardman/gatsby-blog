@@ -127,7 +127,7 @@ function BlogIndex(props) {
       />
       <Header>
         <Heading>Blog</Heading>
-        {/* <TabBar>
+        <TabBar>
             <Tabs>
             <ActiveTabOutline activeTab={activeTab}/>
             <Tab onClick={() => setActiveTab(0)}>ALL</Tab>
@@ -135,7 +135,7 @@ function BlogIndex(props) {
             <Tab onClick={() => setActiveTab(2)}>BACK END</Tab>
             <Tab onClick={() => setActiveTab(3)}>DEV OPS</Tab>
             </Tabs>
-          </TabBar> */}
+          </TabBar>
       </Header>
       <PostsWrapper>
         {posts.map(({ node }) => <PostCard key={node.fields.slug} node={node} />)}
