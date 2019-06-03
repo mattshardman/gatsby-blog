@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { FaGithub } from 'react-icons/fa';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -64,8 +65,12 @@ function Home({ data, location }) {
         </IPhone>
 
         <ButtonSection>
-          <Button text="projects" color="#fff" background="#24292e" />
-          <Button text="github" icon={<FaGithub />} background="#fff" />
+          <AnchorLink href="#projects">
+            <Button text="projects" color="#fff" background="#24292e" />
+          </AnchorLink>
+          <a href="">
+            <Button text="github" icon={<FaGithub />} background="#fff" />
+          </a>
         </ButtonSection>
 
       </Container>

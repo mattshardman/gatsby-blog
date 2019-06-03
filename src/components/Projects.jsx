@@ -113,7 +113,7 @@ const cards = [
     buttons: [
       {
         text: 'VISIT',
-        link: 'https://wwww.prosperify.co.uk',
+        link: 'https://prosperify.co.uk',
       },
     ],
   },
@@ -161,7 +161,7 @@ function Projects() {
   }, []);
 
   return (
-    <Container>
+    <Container id="projects">
       <h1>Projects</h1>
       <CardsWrapper id="cards-wrapper">
         <Cards active={active}>
