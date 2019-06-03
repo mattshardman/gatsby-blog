@@ -69,7 +69,7 @@ function Terminal() {
       <TopBar>
         { ['red', 'orange', 'green'].map(btn => <Button color={btn} />)}
       </TopBar>
-      <Body contentEditable id="body">
+      <Body id="body">
         $ {text}
       </Body>
     </Container>

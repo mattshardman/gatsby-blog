@@ -16,7 +16,7 @@ const Post = styled.div`
   filter: ${({ active }) => (active ? 'none' : 'grayscale(100%)')};
   opacity: ${({ active }) => (active ? 1 : 0.7)};
   transform: ${({ active }) => (active ? 'scale(1)' : 'scale(0.9)')};
-  transition: all 420ms;
+  transition: all 250ms;
 
   &:hover {
     transform: transformY(-3px);
@@ -76,6 +76,7 @@ function Card({
       <Date>
         { buttons.map(button => (
           <a
+            key={button.text}
             href={button.link}
             target="_blank"
             rel="noopener noreferrer"
@@ -91,7 +92,7 @@ Card.propTypes = {
   index: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  buttons: PropTypes.arrayOf().isRequired,
+  buttons: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   active: PropTypes.bool.isRequired,
   clickHandler: PropTypes.func.isRequired,
   src: PropTypes.string.isRequired,

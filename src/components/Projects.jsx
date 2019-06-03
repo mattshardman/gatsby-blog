@@ -167,6 +167,7 @@ function Projects() {
         <Cards active={active}>
           { cards.map((card, index) => (
             <Card
+              key={card.title}
               {...card}
               active={active === index}
               clickHandler={clickHandler}

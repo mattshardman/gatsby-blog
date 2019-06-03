@@ -75,11 +75,15 @@ function MainButton(props) {
 
 MainButton.propTypes = {
   text: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.string,
   isMobile: PropTypes.bool.isRequired,
   color: PropTypes.string.isRequired,
   background: PropTypes.string.isRequired,
   borderColor: PropTypes.string.isRequired,
+};
+
+MainButton.defaultProps = {
+  icon: '',
 };
 
 export default MainButton;

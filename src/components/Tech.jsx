@@ -1,5 +1,5 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react';
+import styled from 'styled-components';
 
 const Container = styled.section`
   width: 100%;  
@@ -10,17 +10,7 @@ const Container = styled.section`
   background: #fafbfc;
   border-top: 1px #eaeaea solid;
   border-bottom: 1px #eaeaea solid;
-`
-
-const Header = styled.div`
-  display: flex;
-  align-items: flex-end;
-`
-
-const Heading = styled.h4`
-  font-size: 20px;
-  margin-bottom: 0;
-`
+`;
 
 const Wrapper = styled.div`
   width: 100%;
@@ -30,7 +20,7 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
   }
-`
+`;
 
 const LogoWrapper = styled.div`
   width: 1200px;
@@ -52,7 +42,7 @@ const LogoWrapper = styled.div`
       transform: translate3d(-50%, 0, 0);
     }
   }
-`
+`;
 
 const ImgWrapper = styled.div`
   margin: 0;
@@ -60,33 +50,31 @@ const ImgWrapper = styled.div`
   display: flex;
   align-items: center;
   filter: grayscale(100%) brightness(40%);
-`
+`;
 
 const logos = [
-  "https://res.cloudinary.com/dgdniqfi9/image/upload/v1556814021/blog/logos.png",
-  "https://res.cloudinary.com/dgdniqfi9/image/upload/v1556815131/blog/logos2.png",
-]
+  'https://res.cloudinary.com/dgdniqfi9/image/upload/v1556814021/blog/logos.png',
+  'https://res.cloudinary.com/dgdniqfi9/image/upload/v1556815131/blog/logos2.png',
+];
 
 function Tech() {
   return (
     <Container>
-      {/* <Header>
-        <Heading>Tech I Love</Heading>
-      </Header> */}
       <Wrapper>
         <LogoWrapper>
           {logos.map(logo => (
-            <ImgWrapper>
-              <img 
-                src={logo} 
-                style={{ padding: 0, margin: 0, width: 400 }} 
+            <ImgWrapper key={logo}>
+              <img
+                src={logo}
+                alt="tech logos"
+                style={{ padding: 0, margin: 0, width: 400 }}
               />
             </ImgWrapper>
           ))}
         </LogoWrapper>
       </Wrapper>
     </Container>
-  )
+  );
 }
 
-export default Tech
+export default Tech;
