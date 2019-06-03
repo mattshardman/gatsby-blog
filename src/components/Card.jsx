@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 const Post = styled.div`
@@ -56,16 +57,12 @@ const Date = styled.div`
   justify-content: space-between;
 `;
 
-function Image() {
-  
-}
-
 function Card({
-  index, title, text, buttons, active, clickHandler, src,
+  index, title, text, buttons, active, clickHandler, img,
 }) {
   return (
     <Post onClick={() => clickHandler(index)} active={active} index={index}>
-      <img src={src} alt="" style={{ marginBottom: 10, border: '1px solid #eaeaea' }} />
+      <Img fluid={img} style={{ marginBottom: 10, border: '1px solid #eaeaea' }} />
       <Heading>
         <div
           style={{ boxShadow: 'none', color: '#2B2B2B' }}

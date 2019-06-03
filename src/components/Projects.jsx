@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { graphql, StaticQuery } from 'gatsby';
 import styled from 'styled-components';
+
 import Card from './Card';
 
 const Container = styled.section`
@@ -107,6 +109,17 @@ const cards = [
     ],
   },
   {
+    title: 'Hire Products',
+    src: 'https://airproducts.now.sh/',
+    text: 'A Lambda build week project made with vanilla js, and less.',
+    buttons: [
+      {
+        text: 'VISIT',
+        link: '',
+      },
+    ],
+  },
+  {
     title: 'PROSPERIFY',
     src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1559058312/portfolio/Screenshot_2019-05-28_at_16.44.50.png',
     text: 'Website for a startup providing financial advice for millenials.',
@@ -117,18 +130,43 @@ const cards = [
       },
     ],
   },
-  {
-    title: 'Seven',
-    src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1543249109/portfolio/raal-training.png',
-    text: '',
-    buttons: [
-      {
-        text: 'VISIT',
-        link: '',
-      },
-    ],
-  },
 ];
+
+export const fluidImage = graphql`
+fragment fluidImage on File {
+  childImageSharp {
+    fluid(maxWidth: 1000) {
+      ...GatsbyImageSharpFluid
+    }
+  }
+}
+`;
+
+export const pageQuery = graphql`
+  query imgQuery {
+    now: file(absolutePath: { regex: "/now.png/" }) {
+      ...fluidImage
+    }
+    alpacas: file(absolutePath: { regex: "/alpacas.png/" }) {
+      ...fluidImage
+    }
+    wackJack: file(absolutePath: { regex: "/wack-jack.png/" }) {
+      ...fluidImage
+    }
+    raal: file(absolutePath: { regex: "/nas.png/" }) {
+      ...fluidImage
+    }
+    nas: file(absolutePath: { regex: "/raal.png/" }) {
+      ...fluidImage
+    }
+    prosperify: file(absolutePath: { regex: "/products.png/" }) {
+      ...fluidImage
+    }
+    photoBanana: file(absolutePath: { regex: "/prosperify.png/" }) {
+      ...fluidImage
+    }
+  }
+`;
 
 function Projects() {
   const [active, setActive] = useState(0);
@@ -161,22 +199,31 @@ function Projects() {
   }, []);
 
   return (
-    <Container id="projects">
-      <h1>Projects</h1>
-      <CardsWrapper id="cards-wrapper">
-        <Cards active={active}>
-          { cards.map((card, index) => (
-            <Card
-              key={card.title}
-              {...card}
-              active={active === index}
-              clickHandler={clickHandler}
-              index={index}
-            />
-          ))}
-        </Cards>
-      </CardsWrapper>
-    </Container>
+    <StaticQuery
+      query={pageQuery}
+      render={(data) => {
+        const dataArray = Object.values(data);
+        return (
+          <Container id="projects">
+            <h1>Projects</h1>
+            <CardsWrapper id="cards-wrapper">
+              <Cards active={active}>
+                { cards.map((card, index) => (
+                  <Card
+                    key={card.title}
+                    {...card}
+                    img={dataArray[index].childImageSharp.fluid}
+                    active={active === index}
+                    clickHandler={clickHandler}
+                    index={index}
+                  />
+                ))}
+              </Cards>
+            </CardsWrapper>
+          </Container>
+        );
+      }}
+    />
   );
 }
 
