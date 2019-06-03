@@ -75,10 +75,10 @@ function Home({ data, location }) {
         </IPhone>
 
         <ButtonSection>
-          <AnchorLink href="#projects">
+          <AnchorLink href="#projects" style={{ width: '100%' }}>
             <Button text="projects" color="#fff" background="#24292e" />
           </AnchorLink>
-          <a href="">
+          <a href="" style={{ width: '100%' }}>
             <Button text="github" icon={<FaGithub />} background="#fff" />
           </a>
         </ButtonSection>

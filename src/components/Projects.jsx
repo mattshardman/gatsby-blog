@@ -203,6 +203,7 @@ function Projects() {
       query={pageQuery}
       render={(data) => {
         const dataArray = Object.values(data);
+
         return (
           <Container id="projects">
             <h1>Projects</h1>
