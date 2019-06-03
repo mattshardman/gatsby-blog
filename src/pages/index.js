@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import { FaGithub } from 'react-icons/fa';
@@ -46,12 +47,21 @@ const ButtonSection = styled.div`
   }
 `;
 
+const keywords = ['blog', 'gatsby',
+  'javascript', 'react',
+  'portfolio', 'golang',
+  'developer', 'wiltshire', 'bath', 'bristol', 'software', 'UK'];
+
+
 function Home({ data, location }) {
   const siteTitle = data.site.siteMetadata.title;
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Home" keywords={['blog', 'gatsby', 'javascript', 'react']} />
+      <SEO
+        title="Home"
+        keywords={keywords}
+      />
 
       <Background />
 
@@ -79,6 +89,11 @@ function Home({ data, location }) {
     </Layout>
   );
 }
+
+Home.propTypes = {
+  data: PropTypes.arrayOf().isRequired,
+  location: PropTypes.shape().isRequired,
+};
 
 export default Home;
 
