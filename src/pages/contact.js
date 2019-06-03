@@ -40,34 +40,57 @@ function Contact() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
+
+
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    const result = await axios.post('/api/send', {
-      name, email, message,
-    });
-
-    console.log(result);
+    try {
+      await axios.post('/api/send', {
+        name, email, message,
+      });
+      setSent(true);
+    } catch (err) {
+      setSent(true);
+      setError(err);
+    }
+    setSent(true);
   };
 
   return (
     <Layout>
       <SEO title="Contact" />
       <Background />
-      <Container>
-        <ContactForm onSubmit={submitHandler}>
-          <Fade delay={1000}>
-            <Input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
-          </Fade>
-          <Fade delay={1200}>
-            <Input type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-          </Fade>
-          <Fade delay={1400}>
-            <Input type="text" placeholder="Message" value={message} onChange={e => setMessage(e.target.value)} />
-          </Fade>
-          <MainButton type="submit" text="send" background="#24292e" color="#fff" />
-        </ContactForm>
-      </Container>
+      {
+        sent
+          ? (
+            <Container>
+              <div style={{ textAlign: 'center' }}>
+                <h3>Thank you for getting in touch.<br /> I&apos;ll get back to you soon</h3>
+                { !!error && <p>Sorry your message didn&apos;t send</p> }
+              </div>
+            </Container>
+          )
+          : (
+            <Container>
+              <ContactForm onSubmit={submitHandler}>
+                <Fade delay={1000}>
+                  <Input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
+                </Fade>
+                <Fade delay={1200}>
+                  <Input type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+                </Fade>
+                <Fade delay={1400}>
+                  <Input type="text" placeholder="Message" value={message} onChange={e => setMessage(e.target.value)} />
+                </Fade>
+                <MainButton type="submit" text="send" background="#24292e" color="#fff" />
+              </ContactForm>
+            </Container>
+          )
+      }
+
     </Layout>
   );
 }
