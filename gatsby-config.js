@@ -21,6 +21,7 @@ module.exports = {
           },
           {
             family: 'Material Icons',
+            variants: ['400', '700'],
           },
         ],
       },

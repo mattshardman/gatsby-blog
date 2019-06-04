@@ -193,9 +193,6 @@ function Projects() {
   useEffect(() => {
     const isDesktop = window.innerWidth > 500;
     if (isDesktop) setActive(3);
-
-    const cardsWrapper = document.getElementById('cards-wrapper');
-    cardsWrapper.addEventListener('scroll', scrollListener);
   }, []);
 
   return (
@@ -207,7 +204,7 @@ function Projects() {
         return (
           <Container id="projects">
             <h1>Projects</h1>
-            <CardsWrapper id="cards-wrapper">
+            <CardsWrapper id="cards-wrapper" onScroll={scrollListener}>
               <Cards active={active}>
                 { cards.map((card, index) => (
                   <Card

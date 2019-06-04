@@ -54,11 +54,6 @@ const ImgWrapper = styled.div`
   filter: grayscale(100%) brightness(40%);
 `;
 
-const logos = [
-  'https://res.cloudinary.com/dgdniqfi9/image/upload/v1556814021/blog/logos.png',
-  'https://res.cloudinary.com/dgdniqfi9/image/upload/v1556815131/blog/logos2.png',
-];
-
 export const techQuery = graphql`
   query TechQuery {
     tech: file(absolutePath: { regex: "/tech.png/" }) {
