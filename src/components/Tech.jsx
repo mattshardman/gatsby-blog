@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
+import Image from 'gatsby-image';
 import styled from 'styled-components';
 
 const Container = styled.section`
@@ -58,7 +59,7 @@ const logos = [
   'https://res.cloudinary.com/dgdniqfi9/image/upload/v1556815131/blog/logos2.png',
 ];
 
-export const query = graphql`
+export const techQuery = graphql`
   query TechQuery {
     tech: file(absolutePath: { regex: "/tech.png/" }) {
       childImageSharp {
@@ -73,30 +74,24 @@ export const query = graphql`
 function Tech() {
   return (
     <StaticQuery
-      query={query}
-      render={(data) => {
-        return (
-          <Container>
-            <Wrapper>
-              <LogoWrapper>
-                {logos.map(logo => (
-                  <ImgWrapper key={logo}>
-                    <img
-                      src={logo}
-                      alt="tech logos"
-                      style={{ padding: 0, margin: 0, width: 400 }}
-                    />
-                  </ImgWrapper>
-                ))}
-              </LogoWrapper>
-            </Wrapper>
-          </Container>
-        );
-      }}
+      query={techQuery}
+      render={({ tech }) => (
+        <Container>
+          <Wrapper>
+            <LogoWrapper>
+              <ImgWrapper>
+                <Image
+                  fluid={tech.childImageSharp.fluid}
+                  alt="tech logos"
+                  style={{ padding: 0, margin: 0, width: 400 }}
+                />
+              </ImgWrapper>
+            </LogoWrapper>
+          </Wrapper>
+        </Container>
+      )}
     />
   );
 }
-
-
 
 export default Tech;
