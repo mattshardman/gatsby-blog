@@ -128,14 +128,17 @@ function Header({
   return (
     <Container scrolled={scrolled}>
       <Nav scrolled={scrolled}>
+
         <Link to="/" style={{ boxShadow: 'none' }}>
           <DesktopMenuItem>
             <Logo isMobile={isMobile} text="Matt.cat" scrolled={scrolled} />
           </DesktopMenuItem>
         </Link>
+
         <MobileButton type="button" open={open} onClick={() => setOpen(!open)}>
           <Arrow />
         </MobileButton>
+
         <DesktopNavOptions>
           {menuItems.map((each) => {
             if (each.external) {
