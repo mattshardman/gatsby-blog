@@ -50,7 +50,6 @@ const Cards = styled.div`
 const cards = [
   {
     title: 'NOW BOOM',
-    src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1556614940/blog/now.png',
     text: 'A command line tool for spinning up an express server in order to test serverless functions locally.',
     buttons: [
       {
@@ -65,7 +64,6 @@ const cards = [
   },
   {
     title: 'DOWNSWOOD ALPACAS',
-    src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1552990006/portfolio/Screenshot_2019-03-19_at_10.06.23.png',
     text: 'A website for a rural Alpaca walking company. Built with Gatsby.js.',
     buttons: [
       {
@@ -76,7 +74,6 @@ const cards = [
   },
   {
     title: 'WACK JACK',
-    src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1552897944/portfolio/Screenshot_2019-03-18_at_08.32.09.png',
     text: 'Wack jack is a black jack progressive web-app built using next.js',
     buttons: [
       {
@@ -88,7 +85,6 @@ const cards = [
   },
   {
     title: 'N.A.S.',
-    src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1552990038/portfolio/Screenshot_2019-03-19_at_10.06.54.png',
     text: 'Website for Niche Aviation Solutions, an aviation consultancy agency specialising in flights into Antarctica.',
     buttons: [
       {
@@ -99,34 +95,31 @@ const cards = [
   },
   {
     title: 'RAAL TRAINING PLATFORM',
-    src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1543249109/portfolio/raal-training.png',
     text: 'A training platform for ground handling staff in a Chilean airport.',
     buttons: [
       {
         text: 'VISIT',
-        link: '',
+        link: 'https://raaltraining2018.herokuapp.com',
       },
     ],
   },
   {
     title: 'Hire Products',
-    src: 'https://airproducts.now.sh/',
     text: 'A Lambda build week project made with vanilla js, and less.',
     buttons: [
       {
         text: 'VISIT',
-        link: '',
+        link: 'https://airproducts.now.sh',
       },
     ],
   },
   {
     title: 'PROSPERIFY',
-    src: 'https://res.cloudinary.com/dgdniqfi9/image/upload/v1559058312/portfolio/Screenshot_2019-05-28_at_16.44.50.png',
     text: 'Website for a startup providing financial advice for millenials.',
     buttons: [
       {
         text: 'VISIT',
-        link: 'https://prosperify.co.uk',
+        link: 'https://www.prosperify.co.uk',
       },
     ],
   },

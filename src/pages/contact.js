@@ -56,7 +56,6 @@ function Contact() {
       setSent(true);
       setError(err);
     }
-    setSent(true);
   };
 
   return (

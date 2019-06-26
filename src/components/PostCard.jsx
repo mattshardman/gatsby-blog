@@ -1,11 +1,11 @@
-import React from "react"
-import styled from "styled-components"
-import { Link, graphql } from "gatsby"
+import React from 'react';
+import styled from 'styled-components';
+import { Link, graphql } from 'gatsby';
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
+import Bio from '../components/bio';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import { rhythm } from '../utils/typography';
 
 const Post = styled(props => <Link {...props} />)`
   position: relative;
@@ -31,13 +31,13 @@ const Post = styled(props => <Link {...props} />)`
     transform: scale(1.02);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   }
-`
+`;
 
 const Heading = styled.h3`
   margin: 0;
   margin-bottom: 12px;
   color: #484848;
-`
+`;
 
 const Paragraph = styled.p`
   color: #767676;
@@ -46,7 +46,7 @@ const Paragraph = styled.p`
   margin: 12px 0;
   line-height: 1.5;
   margin-bottom: 35px;
-`
+`;
 
 const Date = styled.div`
   box-sizing: border-box;
@@ -55,17 +55,17 @@ const Date = styled.div`
   bottom: 15px;
   left: 20px;
   color: #000;
-`
+`;
 
 function PostCard({ node }) {
-  const title = node.frontmatter.title || node.fields.slug
+  const title = node.frontmatter.title || node.fields.slug;
 
   return (
     <Post key={node.fields.slug} to={node.fields.slug}>
       <img src={node.frontmatter.image} alt="" style={{ marginBottom: 10 }} />
       <Heading>
         <Link
-          style={{ boxShadow: `none`, color: "#2B2B2B" }}
+          style={{ boxShadow: 'none', color: '#2B2B2B' }}
           to={node.fields.slug}
         >
           {title}
@@ -83,7 +83,7 @@ function PostCard({ node }) {
         </small>
       </Date>
     </Post>
-  )
+  );
 }
 
-export default PostCard
+export default PostCard;

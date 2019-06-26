@@ -78,7 +78,12 @@ function Home({ data, location }) {
           <AnchorLink href="#projects" style={{ width: '100%' }}>
             <Button text="projects" color="#fff" background="#24292e" />
           </AnchorLink>
-          <a href="" style={{ width: '100%' }}>
+          <a
+            href="https://github.com/mattshardman"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ width: '100%' }}
+          >
             <Button text="github" icon={<FaGithub />} background="#fff" />
           </a>
         </ButtonSection>

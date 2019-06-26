@@ -1,6 +1,5 @@
-import React from "react"
-import styled from "styled-components"
-import PropTypes from "prop-types"
+import React from 'react';
+import styled from 'styled-components';
 
 const Container = styled.div`
   overflow: hidden;
@@ -28,7 +27,7 @@ const Container = styled.div`
     width: 100%;
     position: absolute;
   }
-`
+`;
 
 const Circle = styled.div`
   position: absolute;
@@ -49,7 +48,7 @@ const Circle = styled.div`
       transform: scale(1);
     }
   }
-`
+`;
 
 function Background() {
   return (
@@ -58,7 +57,7 @@ function Background() {
         <Circle key={each} size={each} />
       ))}
     </Container>
-  )
+  );
 }
 
-export default Background
+export default Background;
