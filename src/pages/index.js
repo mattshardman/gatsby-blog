@@ -16,6 +16,8 @@ import Projects from '../components/Projects';
 import Dock from '../components/mac/Dock';
 import Terminal from '../components/mac/Terminal';
 import IPhoneApp from '../components/iphone/App';
+import Footer from '../components/Footer';
+import GetInTouch from '../components/GetInTouch';
 
 const Container = styled.div`
   position: relative;
@@ -36,7 +38,7 @@ const ButtonSection = styled.div`
   bottom: 12%;
   display: flex;
   justify-content: space-between;
-  width: 400px;
+  width: 440px;
 
   @media (max-width: 600px) {
     position: static;
@@ -45,12 +47,24 @@ const ButtonSection = styled.div`
     align-items: center;
     width: 80%;
   }
+
+  a {
+    width: 200px;
+
+    @media (max-width: 600px) {
+      width: 100%;
+    }
+  }
 `;
 
-const keywords = ['blog', 'gatsby',
+
+const keywords = [
+  'blog', 'gatsby',
   'javascript', 'react',
   'portfolio', 'golang',
-  'developer', 'wiltshire', 'bath', 'bristol', 'software', 'UK'];
+  'developer', 'wiltshire',
+  'bath', 'bristol', 'software', 'UK',
+];
 
 
 function Home({ data, location }) {
@@ -75,14 +89,13 @@ function Home({ data, location }) {
         </IPhone>
 
         <ButtonSection>
-          <AnchorLink href="#projects" style={{ width: '100%' }}>
+          <AnchorLink href="#projects" style={{ width: '100%' }} offset={60}>
             <Button text="projects" color="#fff" background="#24292e" />
           </AnchorLink>
           <a
             href="https://github.com/mattshardman"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ width: '100%' }}
           >
             <Button text="github" icon={<FaGithub />} background="#fff" />
           </a>
@@ -91,6 +104,8 @@ function Home({ data, location }) {
       </Container>
       <Tech />
       <Projects />
+      <GetInTouch />
+      <Footer />
     </Layout>
   );
 }
