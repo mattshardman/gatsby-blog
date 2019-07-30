@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Logo = ({ text, scrolled }) => (
+const Logo = ({ text, scrolled, color = '#000' }) => (
   <h2 style={{
     fontFamily: 'Roboto Slab, Serif',
     fontSize: 24,
     margin: 0,
     display: 'flex',
     fontWeight: 550,
+    color,
   }}
   >
   /
@@ -30,6 +31,7 @@ const Logo = ({ text, scrolled }) => (
 Logo.propTypes = {
   scrolled: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
 };
 
 export default Logo;
