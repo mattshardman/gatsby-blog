@@ -10,8 +10,19 @@ const Container = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px 0;
     overflow: hidden;
+`;
+
+const Header = styled.div`
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    margin: 0;
+  }
 `;
 
 const CardsWrapper = styled.div`
@@ -20,6 +31,7 @@ const CardsWrapper = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  padding-bottom: 150px;
   
   &::-webkit-scrollbar {
     display: none;
@@ -34,7 +46,7 @@ const CardsWrapper = styled.div`
 
 const Cards = styled.div`
     display: flex; 
-    padding: 50px 5%;
+    padding: 0px 5%;
     transform: ${({ active }) => `translateX(${-(active * 320 - 960)}px)`};
     transition: transform 420ms;
 
@@ -196,7 +208,9 @@ function Projects() {
 
         return (
           <Container id="projects">
-            <h1>Projects</h1>
+            <Header>
+              <h1>Projects</h1>
+            </Header>
             <CardsWrapper id="cards-wrapper" onScroll={scrollListener}>
               <Cards active={active}>
                 { cards.map((card, index) => (
