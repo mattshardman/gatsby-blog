@@ -6,9 +6,8 @@ const Button = styled.button`
   color: ${({ color }) => color};
   background: ${({ background }) => background};
   border: none;
-  width: 180px;
-  
-  height: 40px;
+  width: ${({ width }) => width};
+  height: 45px;
   margin: 0;
   font-weight: 350;
   opacity: 1;
@@ -76,6 +75,7 @@ function MainButton(props) {
 MainButton.propTypes = {
   text: PropTypes.string.isRequired,
   icon: PropTypes.string,
+  width: PropTypes.string,
   isMobile: PropTypes.bool.isRequired,
   color: PropTypes.string.isRequired,
   background: PropTypes.string.isRequired,
@@ -84,6 +84,7 @@ MainButton.propTypes = {
 
 MainButton.defaultProps = {
   icon: '',
+  width: '200px',
 };
 
 export default MainButton;
