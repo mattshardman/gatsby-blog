@@ -84,7 +84,9 @@ function Contact() {
                 <Fade delay={1400}>
                   <Input type="text" placeholder="Message" value={message} onChange={e => setMessage(e.target.value)} />
                 </Fade>
-                <MainButton type="submit" text="send" background="#24292e" color="#fff" />
+                <Fade delay={1600}>
+                  <MainButton type="submit" text="send" background="#24292e" color="#fff" width="300px" />
+                </Fade>
               </ContactForm>
             </Container>
           )
