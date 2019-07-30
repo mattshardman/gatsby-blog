@@ -111,7 +111,7 @@ const MobileIcon = styled.div`
 `;
 
 function Header({
-  isMobile, isTablet, menuItems,
+  menuItems,
 }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -131,7 +131,7 @@ function Header({
 
         <Link to="/" style={{ boxShadow: 'none' }}>
           <DesktopMenuItem>
-            <Logo isMobile={isMobile} text="Matt.cat" scrolled={scrolled} />
+            <Logo text="Matt.cat" scrolled={scrolled} />
           </DesktopMenuItem>
         </Link>
 
@@ -172,7 +172,7 @@ function Header({
             );
           })}
 
-          {!isTablet && <Avatar />}
+          <Avatar />
 
         </DesktopNavOptions>
       </Nav>
@@ -197,8 +197,6 @@ function Header({
 }
 
 Header.propTypes = {
-  isMobile: PropTypes.bool.isRequired,
-  isTablet: PropTypes.bool.isRequired,
   menuItems: PropTypes.arrayOf().isRequired,
 };
 
