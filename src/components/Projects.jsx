@@ -13,7 +13,7 @@ const Container = styled.section`
     overflow: hidden;
 `;
 
-const Header = styled.div`
+const Heading = styled.div`
   width: 100%;
   height: 150px;
   display: flex;
@@ -208,9 +208,9 @@ function Projects() {
 
         return (
           <Container id="projects">
-            <Header>
+            <Heading>
               <h1>Projects</h1>
-            </Header>
+            </Heading>
             <CardsWrapper id="cards-wrapper" onScroll={scrollListener}>
               <Cards active={active}>
                 { cards.map((card, index) => (
