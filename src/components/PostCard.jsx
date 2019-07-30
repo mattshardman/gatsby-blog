@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, graphql } from 'gatsby';
 
-import Bio from '../components/bio';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Bio from './bio';
+import Layout from './layout';
+import SEO from './seo';
 import { rhythm } from '../utils/typography';
 
 const Post = styled(props => <Link {...props} />)`
