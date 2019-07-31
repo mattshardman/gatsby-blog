@@ -18,6 +18,7 @@ import Terminal from '../components/mac/Terminal';
 import IPhoneApp from '../components/iphone/App';
 import Footer from '../components/Footer';
 import GetInTouch from '../components/GetInTouch';
+import AboutMe from '../components/AboutMe';
 
 const Container = styled.div`
   position: relative;
@@ -103,6 +104,7 @@ function Home({ data, location }) {
 
       </Container>
       <Tech />
+      <AboutMe />
       <Projects />
       <GetInTouch />
       <Footer />
