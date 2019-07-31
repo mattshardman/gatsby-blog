@@ -2,6 +2,6 @@
 // import "typeface-montserrat"
 // import "typeface-merriweather"
 
-import "prismjs/themes/prism-okaidia.css";
+import 'prismjs/themes/prism-okaidia.css';
 
-import "./src/templates/code.css"
+import './src/templates/code.css';
