@@ -3,7 +3,7 @@ module.exports = {
     title: 'Matt.cat',
     author: 'Matt',
     description: 'Portfolio of Matt. Full stack javascript developer',
-    siteUrl: 'https://blog.matt.cat/',
+    siteUrl: 'https://matt.cat/',
   },
   plugins: [
     'gatsby-plugin-styled-components',
