@@ -4,15 +4,22 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 const Post = styled.div`
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
   scroll-snap-align: center;
   -webkit-tap-highlight-color: transparent;
   position: relative;
   width: 320px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   max-width: 50%;
   padding: 20px;
   border-radius: 5px;
   border: 1px #dadce0 solid;
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 5px 30px 0px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 15px 0px;
   cursor: pointer;
   filter: ${({ active }) => (active ? 'none' : 'grayscale(100%)')};
   opacity: ${({ active }) => (active ? 1 : 0.7)};
@@ -20,15 +27,26 @@ const Post = styled.div`
   transition: all 250ms;
 
   &:hover {
-    transform: transformY(-3px);
+    transform: ${({ active }) => (active ? 'translateY(-3px) scale(1)' : 'translateY(-3px) scale(0.9)')};
     filter: none;
     opacity: 1;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   }
 
   @media (max-width: 500px) {
     width: 250px;
   }
+`;
+
+const ImageWrapper = styled.div`
+  box-sizing: border-box;
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 10px;
+  border: 1px solid #dadce0;
+  border-radius: 5px;
+  overflow: hidden;
 `;
 
 const Heading = styled.h3`
@@ -41,7 +59,7 @@ const Paragraph = styled.p`
   color: #767676;
   font-weight: 400;
   text-align: justify;
-  margin: 12px 0;
+  margin: 5px 0;
   line-height: 1.5;
   margin-bottom: 35px;
 `;
@@ -62,7 +80,9 @@ function Card({
 }) {
   return (
     <Post onClick={() => clickHandler(index)} active={active} index={index}>
-      <Img fluid={img} style={{ marginBottom: 10, border: '1px solid #eaeaea' }} />
+      <ImageWrapper>
+        <Img fluid={img} />
+      </ImageWrapper>
       <Heading>
         <div
           style={{ boxShadow: 'none', color: '#2B2B2B' }}
@@ -96,7 +116,7 @@ Card.propTypes = {
   buttons: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   active: PropTypes.bool.isRequired,
   clickHandler: PropTypes.func.isRequired,
-  src: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
 };
 
 export default Card;
