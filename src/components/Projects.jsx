@@ -15,7 +15,8 @@ const Container = styled.section`
 
 const Heading = styled.div`
   width: 100%;
-  height: 150px;
+  padding-top: 20px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +32,9 @@ const CardsWrapper = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  padding-top: 30px;
   padding-bottom: 150px;
+  z-index: 5;
   
   &::-webkit-scrollbar {
     display: none;
@@ -61,7 +64,7 @@ const Cards = styled.div`
 
 const cards = [
   {
-    title: 'NOW BOOM',
+    title: 'Now Boom',
     text: 'A command line tool for spinning up an express server in order to test serverless functions locally.',
     buttons: [
       {
@@ -75,7 +78,7 @@ const cards = [
     ],
   },
   {
-    title: 'DOWNSWOOD ALPACAS',
+    title: 'Downswood ALpacas',
     text: 'A website for a rural Alpaca walking company. Built with Gatsby.js.',
     buttons: [
       {
@@ -85,7 +88,7 @@ const cards = [
     ],
   },
   {
-    title: 'WACK JACK',
+    title: 'Wack Jack',
     text: 'Wack jack is a black jack progressive web-app built using next.js',
     buttons: [
       {
@@ -106,7 +109,7 @@ const cards = [
     ],
   },
   {
-    title: 'RAAL TRAINING PLATFORM',
+    title: 'RAAL Training Platform',
     text: 'A training platform for ground handling staff in a Chilean airport.',
     buttons: [
       {
@@ -126,7 +129,7 @@ const cards = [
     ],
   },
   {
-    title: 'PROSPERIFY',
+    title: 'Prosperify',
     text: 'Website for a startup providing financial advice for millenials.',
     buttons: [
       {
