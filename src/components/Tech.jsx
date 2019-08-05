@@ -33,7 +33,7 @@ const LogoWrapper = styled.div`
   padding: 0;
 
   @media (max-width: 600px) {
-    animation: slide 10s infinite linear;
+    animation: slide 30s infinite linear;
   }
   
   @keyframes slide {
@@ -41,7 +41,7 @@ const LogoWrapper = styled.div`
       transform: translate3d(0, 0, 0);
     }
     to {
-      transform: translate3d(-50%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
     }
   }
 `;
@@ -52,6 +52,14 @@ const ImgWrapper = styled.div`
   display: flex;
   align-items: center;
   filter: grayscale(100%) brightness(40%);
+`;
+
+const MobImgs = styled.div`
+  display: flex;
+
+  @media(min-width: 900px) {
+    display: none;
+  }
 `;
 
 export const techQuery = graphql`
@@ -80,6 +88,33 @@ function Tech() {
                   alt="tech logos"
                   style={{ padding: 0, margin: 0, width: 400 }}
                 />
+                <MobImgs>
+                  <Image
+                    fluid={tech.childImageSharp.fluid}
+                    alt="tech logos"
+                    style={{ padding: 0, margin: 0, width: 400 }}
+                  />
+                  <Image
+                    fluid={tech.childImageSharp.fluid}
+                    alt="tech logos"
+                    style={{ padding: 0, margin: 0, width: 400 }}
+                  />
+                  <Image
+                    fluid={tech.childImageSharp.fluid}
+                    alt="tech logos"
+                    style={{ padding: 0, margin: 0, width: 400 }}
+                  />
+                  <Image
+                    fluid={tech.childImageSharp.fluid}
+                    alt="tech logos"
+                    style={{ padding: 0, margin: 0, width: 400 }}
+                  />
+                  <Image
+                    fluid={tech.childImageSharp.fluid}
+                    alt="tech logos"
+                    style={{ padding: 0, margin: 0, width: 400 }}
+                  />
+                </MobImgs>
               </ImgWrapper>
             </LogoWrapper>
           </Wrapper>
