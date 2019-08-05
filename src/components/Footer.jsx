@@ -5,7 +5,7 @@ import Logo from './Logo';
 const FooterContainer = styled.footer`
     box-sizing: border-box;
     width: 100%;
-    height: 250px;
+    height: 200px;
     background: #fff;
     display: flex;
     justify-content: center;
@@ -14,7 +14,10 @@ const FooterContainer = styled.footer`
 const Content = styled.div`
     width: 1200px;
     max-width: 100%;
-    padding: 40px 5%;
+    padding: 0px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 function Footer() {
@@ -22,6 +25,7 @@ function Footer() {
     <FooterContainer>
       <Content>
         <Logo text="Matt.cat" scrolled color="#000" />
+        <small>&copy;2019 Matt.cat</small>
       </Content>
     </FooterContainer>
   );
