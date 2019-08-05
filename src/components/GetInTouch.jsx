@@ -12,7 +12,6 @@ const Container = styled.section`
     border-top: 1px #eaeaea solid;
     border-bottom: 1px #eaeaea solid;
     padding: 0 25%;
-    /* background: #ff0078; */
     background: #fafbfc;
 
     h1 {
@@ -21,7 +20,7 @@ const Container = styled.section`
         color: #000;
     }
 
-    @media(max-width: 600px) {
+    @media(max-width: 900px) {
       padding: 80px 5%;
       flex-direction: column;
     }
@@ -31,6 +30,11 @@ const Text = styled.div`
     display: flex;
     flex-direction: column;
     text-align: left;
+
+    @media(max-width: 900px) {
+      text-align: center;
+      font-size: 30px;
+    }
 `;
 
 function GetInTouch() {
