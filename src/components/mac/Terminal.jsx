@@ -34,11 +34,10 @@ const Body = styled.pre`
     outline: none;
 `;
 
-const textData = 'I\'m Matt.\n$ I am a full-stack Javascript developer \n from the UK.';
+const textData = 'I\'m Matt.\n$ I am a full-stack Javascript developer \n  from the UK.\n$ Why not have a scroll down and find \n  out some more.'; //eslint-disable-line
 
 function Terminal() {
   const [text, setText] = useState('');
-  //   const [addedText, setAddedText] = useState('');
 
   useEffect(() => {
     let count = 0;
@@ -51,18 +50,6 @@ function Terminal() {
       }
     }, 40);
   }, []);
-
-  //   useEffect(() => {
-  //     const body = document.getElementById('body');
-  //     body.addEventListener('input', ({ data }) => {
-  //       setAddedText((prev) => {
-  //         if (!data) {
-  //           return prev;
-  //         }
-  //         return prev + data;
-  //       });
-  //     });
-  //   }, []);
 
   return (
     <Container>
