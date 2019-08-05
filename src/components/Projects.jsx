@@ -5,19 +5,23 @@ import styled from 'styled-components';
 import Card from './Card';
 
 const Container = styled.section`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 25px;
+  border-top: 1px #eaeaea solid;
 `;
 
 const Heading = styled.div`
   width: 100%;
-  padding-top: 20px;
+  padding-top: 30px;
   height: 100px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -33,7 +37,7 @@ const CardsWrapper = styled.div`
   align-items: center;
   overflow: hidden;
   padding-top: 30px;
-  padding-bottom: 150px;
+  padding-bottom: 125px;
   z-index: 5;
   
   &::-webkit-scrollbar {
@@ -65,7 +69,7 @@ const Cards = styled.div`
 const cards = [
   {
     title: 'Now Boom',
-    text: 'A command line tool for spinning up an express server in order to test serverless functions locally.',
+    text: 'A command line tool for testing serverless functions locally.',
     buttons: [
       {
         text: '',
@@ -78,7 +82,7 @@ const cards = [
     ],
   },
   {
-    title: 'Downswood ALpacas',
+    title: 'Downswood Alpacas',
     text: 'A website for a rural Alpaca walking company. Built with Gatsby.js.',
     buttons: [
       {
@@ -99,8 +103,18 @@ const cards = [
     ],
   },
   {
-    title: 'N.A.S.',
-    text: 'Website for Niche Aviation Solutions, an aviation consultancy agency specialising in flights into Antarctica.',
+    title: 'Count',
+    text: 'Web application for paying invoices using UK open banking APIs.',
+    buttons: [
+      {
+        text: 'VISIT',
+        link: 'https://count.matts.now.sh',
+      },
+    ],
+  },
+  {
+    title: 'N.A.S',
+    text: 'Website for an aviation consultancy, specialising in flights into Antarctica.',
     buttons: [
       {
         text: 'VISIT',
@@ -108,16 +122,7 @@ const cards = [
       },
     ],
   },
-  {
-    title: 'RAAL Training Platform',
-    text: 'A training platform for ground handling staff in a Chilean airport.',
-    buttons: [
-      {
-        text: 'VISIT',
-        link: 'https://raaltraining2018.herokuapp.com',
-      },
-    ],
-  },
+
   {
     title: 'Hire Products',
     text: 'A Lambda build week project made with vanilla js, and less.',
@@ -129,15 +134,16 @@ const cards = [
     ],
   },
   {
-    title: 'Prosperify',
-    text: 'Website for a startup providing financial advice for millenials.',
+    title: 'Training Platform',
+    text: 'A training platform for ground handling staff in a Chilean airport.',
     buttons: [
       {
         text: 'VISIT',
-        link: 'https://www.prosperify.co.uk',
+        link: 'https://raaltraining2018.herokuapp.com',
       },
     ],
   },
+
 ];
 
 export const fluidImage = graphql`
@@ -161,16 +167,16 @@ export const pageQuery = graphql`
     wackJack: file(absolutePath: { regex: "/wack-jack.png/" }) {
       ...fluidImage
     }
-    raal: file(absolutePath: { regex: "/nas.png/" }) {
+    count: file(absolutePath: { regex: "/count.png/" }) {
       ...fluidImage
     }
-    nas: file(absolutePath: { regex: "/raal.png/" }) {
+    nas: file(absolutePath: { regex: "/nas.png/" }) {
       ...fluidImage
     }
-    prosperify: file(absolutePath: { regex: "/products.png/" }) {
+    products: file(absolutePath: { regex: "/products.png/" }) {
       ...fluidImage
     }
-    photoBanana: file(absolutePath: { regex: "/prosperify.png/" }) {
+    raal: file(absolutePath: { regex: "/raal.png/" }) {
       ...fluidImage
     }
   }
@@ -212,7 +218,7 @@ function Projects() {
         return (
           <Container id="projects">
             <Heading>
-              <h1>Projects</h1>
+              <h1>Recent Projects</h1>
             </Heading>
             <CardsWrapper id="cards-wrapper" onScroll={scrollListener}>
               <Cards active={active}>
