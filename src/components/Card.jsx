@@ -11,7 +11,7 @@ const Post = styled.div`
   -webkit-tap-highlight-color: transparent;
   position: relative;
   width: 320px;
-  height: 380px;
+  height: 350px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -20,6 +20,7 @@ const Post = styled.div`
   border-radius: 5px;
   border: 1px #dadce0 solid;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 15px 0px;
+  background: #fff;
   cursor: pointer;
   filter: ${({ active }) => (active ? 'none' : 'grayscale(100%)')};
   opacity: ${({ active }) => (active ? 1 : 0.7)};
@@ -35,6 +36,8 @@ const Post = styled.div`
 
   @media (max-width: 500px) {
     width: 250px;
+    height: 320px;
+    font-size: 14px;
   }
 `;
 
