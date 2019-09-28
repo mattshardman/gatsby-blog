@@ -41,7 +41,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 
 	from := mail.NewEmail("Matt.cat", "someone@matt.cat")
 	subject := "New message to matt.cat"
-	to := mail.NewEmail("Example User", "mattshardman@gmail.com")
+	to := mail.NewEmail("Example User", "matt@matt.cat")
 	plainTextContent := msg.Name + msg.Email + msg.Message
 	htmlContent := "<div><strong>Name</strong><p>" + msg.Name + "</p>" + "<strong>Email</strong><p>" + msg.Email + "</p>" + "<strong>Message</strong><p>" + msg.Message + "</p></div>"
 	message := mail.NewSingleEmail(from, subject, to, plainTextContent, htmlContent)
