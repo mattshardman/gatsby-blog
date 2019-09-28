@@ -9,6 +9,7 @@ import Background from '../components/Background';
 import MainButton from '../components/MainButton';
 
 const Container = styled.section`
+    box-sizing: border-box;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -18,6 +19,7 @@ const Container = styled.section`
 `;
 
 const ContactForm = styled.form`
+  box-sizing: border-box;
   height: 250px;
   width: 320px;
   display: flex;
@@ -85,7 +87,7 @@ function Contact() {
                   <Input type="text" placeholder="Message" value={message} onChange={e => setMessage(e.target.value)} />
                 </Fade>
                 <Fade delay={1600}>
-                  <MainButton type="submit" text="send" background="#24292e" color="#fff" width="300px" />
+                  <MainButton type="submit" text="send" background="#24292e" color="#fff" width="300px" mobWidth="300px" />
                 </Fade>
               </ContactForm>
             </Container>
