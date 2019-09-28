@@ -103,12 +103,12 @@ const cards = [
     ],
   },
   {
-    title: 'Count',
+    title: 'Moopay',
     text: 'Web application for paying invoices using UK open banking APIs.',
     buttons: [
       {
         text: 'VISIT',
-        link: 'https://count.matts.now.sh',
+        link: 'https://www.moopay.co.uk',
       },
     ],
   },
@@ -167,7 +167,7 @@ export const pageQuery = graphql`
     wackJack: file(absolutePath: { regex: "/wack-jack.png/" }) {
       ...fluidImage
     }
-    count: file(absolutePath: { regex: "/count.png/" }) {
+    count: file(absolutePath: { regex: "/moopay.png/" }) {
       ...fluidImage
     }
     nas: file(absolutePath: { regex: "/nas.png/" }) {
