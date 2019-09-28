@@ -63,7 +63,7 @@ But in all my life i have NEVER encountered any such problem with any software t
 'When that time comes for the developer to look for the response, then they\'ll simply get the response from the browser, no cookies will have been set.',
 'It\'s actually pretty simple. All you have to do is pass a valid hash to this function .',
 `If you try to make the response any more complicated you will find that your data will be rejected due to the way that POST and GET have been designed. It's called this:
-"response": { "type": "GET", "method": "PUT", "headers": { "Authorization": "Bearer foo", "Content-Type": "application/p+json" }, "status": 200"`]; // eslint-display-line
+"response": { "type": "GET", "method": "PUT", "headers": { "Authorization": "Bearer foo", "Content-Type": "application/p+json" }, "status": 200"`, 'I\'m not sure if any one ever reads these, so the above was generated using Open APIs text generation algorithm, because it amused me. If you want to know anything true about me, please contact me.']; // eslint-display-line
 
 function AboutMe() {
   return (
